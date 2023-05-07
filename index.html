@@ -67,6 +67,7 @@
                 </div>
             </div>
             <div class="row p-3">
+                <div class="col-2">WPos</div>
                 <div class="col">
                     <div class="input-group">
                         <div class="input-group-text">X</div>
@@ -87,6 +88,28 @@
                 </div>
             </div>
 
+            <div class="row p-3">
+                <div class="col-2">MPos</div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-text">X</div>
+                        <input id="x_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-text">Y</div>
+                        <input id="y_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="input-group">
+                        <div class="input-group-text">Z</div>
+                        <input id="z_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                    </div>
+                </div>
+            </div>
+
         </div> <!--/card-->
 
     </div> <!--/coll-->
@@ -100,9 +123,12 @@
 
                     <textarea class="form-control" id="textArea" rows="8"></textarea>
                 </div>
+
+                <div class="input-group ">
                 <input class="form-control" type="text" placeholder="command input" id="command_msg"
                        aria-label="send command">
                 <button class="btn btn-primary" type="button" onclick="sendCommand()">Send</button>
+                    </div>
             </div><!-- /card-->
         </div> <!-- /card-->
     </div> <!--/coll-->
