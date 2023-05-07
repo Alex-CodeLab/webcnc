@@ -78,7 +78,3 @@ function getCirclePart(x, y) {
     }
   }
 }
-
-
-
-
