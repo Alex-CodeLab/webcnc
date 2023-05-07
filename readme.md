@@ -7,8 +7,9 @@ It uses websockets for communicating to the device.
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png" width="300">
 darkmode
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/darkmode.png" width="300">
+
 ### Status:
-not ready. 
+not ready, needs work.  
 
 todo:
 - [x] jog, pure css 
