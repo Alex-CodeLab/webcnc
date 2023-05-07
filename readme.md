@@ -4,13 +4,12 @@
 WebCNC is a browser-based GUI for [FLuidNC](https://github.com/bdring/FluidNC/) machines.
 It uses websockets for communicating to the device.
 
-![](https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png =300x300)
-
+<img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png" width="300">
 ## Status:
 not ready. 
 
 todo:
-- [x] jog 
+- [x] jog, pure css 
 - [x] bootstrap5 css
 - [x] display websocket communication
 - [ ] send grbl messages from GUI
