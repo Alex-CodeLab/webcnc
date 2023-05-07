@@ -14,7 +14,7 @@ todo:
 - [x] jog, pure css 
 - [x] bootstrap5 css
 - [x] display websocket communication
-- [ ] send grbl messages from GUI
+- [x] send grbl messages from GUI
 - [ ] config/settings
 - [ ] minify, gulp, etc.
 - [ ] file upload, etc.

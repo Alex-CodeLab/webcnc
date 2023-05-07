@@ -49,6 +49,19 @@ function sendCommand(){
     console.log(command_str.value);
 }
 
+function sendCommand2(el, value, axis ){
+//    todo: validate input
+    var msgstr = 'G91 G21 F100 '+axis + value +'\n' ;
+    socket.send(msgstr);
+}
+
+function sendHome(el, axis ){
+    var msgstr = '$H'+axis +'\n' ;
+    socket.send(msgstr);
+}
+
+
+
 function getCirclePart(x, y) {
   const centerX = 200; // center X coordinate of largest circle
   const centerY = 200; // center Y coordinate of largest circle
