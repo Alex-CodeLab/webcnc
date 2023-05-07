@@ -7,36 +7,11 @@ function addData(event){
 
 socket.onopen = function(e) {
   console.log("[open] Connection established");
-  console.log("Sending to server");
-  socket.send("$");
+  socket.send("?");
 };
 
-function SendPrinterCommand(e, t, n, a, i, o, r) {
-                t = void 0 === t || t;
-                0 != e.length && (t && Monitor_output_Update("[#]" + e + "\n"),
-                void 0 !== n && null != n || (n = SendPrinterCommandSuccess),
-                void 0 !== a && null != a || (a = SendPrinterCommandFailed),
-                e.startsWith("[ESP") || (grbl_processfn = n,
-                grbl_errorfn = a,
-                a = n = noop),
-                e = (e = encodeURI(e)).replace("#", "%23"),
-                r && (e += "&" + r),
-                SendGetHttp("/command?commandText=" + e, n, a, i, o))
-            }
-function SendPrinterSilentCommand(e, t, n, a, i) {
-                0 != e.length && (void 0 !== t && null != t || (t = SendPrinterSilentCommandSuccess),
-                void 0 !== n && null != n || (n = SendPrinterCommandFailed),
-                SendGetHttp("/command_silent?commandText=" + (e = (e = encodeURI(e)).replace("#", "%23")), t, n, a, i))
-            }
-function SendPrinterSilentCommandSuccess(e) {}
-function SendPrinterCommandSuccess(e) {}
-function SendPrinterCommandFailed(e, t) {
-    Monitor_output_Update(0 == e ? translate_text_item("Connection error") + "\n" : translate_text_item("Error : ") + e + " :" + decode_entitie(t) + "\n"),
-    console.log("printer cmd Error " + e + " :" + decode_entitie(t))
-}
-
 socket.onmessage = function(event) {
-  console.log(`[message] Data received from server: ${event.data}`);
+    console.log(`[message] Data received from server: ${event.data}`);
 
       if (event.data instanceof Blob) {
         reader = new FileReader();
@@ -65,3 +40,45 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   console.log(`[error]`);
 };
+
+function sendCommand(){
+    var command_str =  document.getElementById("command_msg")
+    command_str.value = command_str.value.trim()
+    socket.send(command_str.value);
+    socket.send('\n');
+    console.log(command_str.value);
+}
+
+function getCirclePart(x, y) {
+  const centerX = 200; // center X coordinate of largest circle
+  const centerY = 200; // center Y coordinate of largest circle
+  const radii = [50, 100, 150, 200]
+  const angle = Math.PI / 4; // angle of rotation (45 degrees in radians)
+  const values = [0.1, 1, 10, 50];
+  var ret = ""
+  const distanceFromCenter = Math.sqrt((x - centerX)**2 + (y - centerY)**2);
+
+  const rotatedX = (x - centerX) * Math.cos(angle) - (y - centerY) * Math.sin(angle) + centerX;
+  const rotatedY = (x - centerX) * Math.sin(angle) + (y - centerY) * Math.cos(angle) + centerY;
+
+
+  if (rotatedX >= centerX && rotatedY < centerY) {
+    ret= "Y";
+  } else if (rotatedX >= centerX && rotatedY >= centerY) {
+    ret = "X";
+  } else if (rotatedX < centerX && rotatedY >= centerY) {
+    ret = "Y-";
+  } else {
+    ret = "X-";
+  }
+
+  for (let i = 0; i < radii.length ; i++) {
+    if (distanceFromCenter < radii[i]) {
+      return ret + values[i]
+    }
+  }
+}
+
+
+
+

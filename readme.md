@@ -5,7 +5,8 @@ WebCNC is a browser-based GUI for [FLuidNC](https://github.com/bdring/FluidNC/) 
 It uses websockets for communicating to the device.
 
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png" width="300">
-## Status:
+
+### Status:
 not ready. 
 
 todo:
@@ -15,11 +16,22 @@ todo:
 - [ ] send grbl messages from GUI
 - [ ] config/settings
 - [ ] minify, gulp, etc.
-- [ ] create
+- [ ] file upload, etc.
+- [ ] docs
+- [ ] tests
+- [ ] ... much more
 
-#### installation
+#### Installation
 
 - Set the correct ip_address in `main.js`
 - open index.html in a browser.
 
-####
+(for development, use `httpwatcher` for auto-reload)
+
+#### Contribute
+
+    - Fork it (https://github.com/yourname/yourproject/fork)
+    - Create your feature branch (git checkout -b feature/fooBar)
+    - Commit your changes (git commit -am 'Add some fooBar')
+    - Push to the branch (git push origin feature/fooBar)
+    - Create a new Pull Request

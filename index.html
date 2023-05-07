@@ -130,14 +130,17 @@ transform-origin: left;
 
 
 </div>
-<div class="card h-100 d-inline-block w-100 p-3">
+<div class="card h-100 d-inline-block w-100 ">
   <h5 class="card-header">Commands</h5>
   <div class="card-body">
 
       <div class="outline">
+
           <textarea class="form-control" id="textArea" rows="8"></textarea>
     </div>
-
+    <input class="form-control" type="text" placeholder="command input" id="command_msg" aria-label="send command" >
+    <button class="btn btn-primary" type="button" onclick="sendCommand()">Send</button>
+</div>
   </div>
 </div>
 
@@ -148,11 +151,15 @@ transform-origin: left;
 
 document.getElementById('jog').onclick = function(e) {
       // e = Mouse click event.
+      if (e.target.tagName == "A") {
       var rect = e.target.getBoundingClientRect();
       var x = e.clientX - rect.left; //x position within the element.
       var y = e.clientY - rect.top;  //y position within the element.
-      console.log("Left? : " + x + " ; Top? : " + y + ".");
+<!--      console.log("Left? : " + x + " ; Top? : " + y + ".");-->
+      var p =  getCirclePart(x,y);
+      console.log(p);
     }
+}
 
 
 </script>
