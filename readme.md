@@ -21,6 +21,7 @@ todo:
 - [x] send grbl messages from GUI
 - [x] real-time status display
 - [x] darkmode
+- [ ] track states
 - [ ] config/settings
 - [ ] minify, gulp, etc.
 - [ ] file upload, etc.

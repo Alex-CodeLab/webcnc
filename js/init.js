@@ -12,3 +12,10 @@ function initialize(){
   }
 }
 
+
+function setMPositions(data){
+    const mxyz = data.substring(5).split(',');
+    document.getElementById("x_val_m").value = mxyz[0];
+    document.getElementById("y_val_m").value = mxyz[1];
+    document.getElementById("z_val_m").value = mxyz[2];
+}

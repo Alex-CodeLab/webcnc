@@ -13,6 +13,14 @@ socket.onmessage = function(event) {
         reader.onload = () => {
             console.log("Result: " + reader.result);
             addData(reader.result);
+            const parts = reader.result.split('|');
+            for (part in parts){
+               if (parts[part].startsWith('MPos')){
+                   setMPositions(parts[part]);
+//                console.log(parts[part]);
+               }
+
+            }
         };
         reader.readAsText(event.data);
 
