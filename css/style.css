@@ -1,0 +1,100 @@
+
+.border2{
+    outline: 1px  auto #fff;
+    outline-offset: 1px;
+    }
+
+
+.home0 {
+  height: 500px;
+  width: 500px;
+  background-color: rgb(115,115,115);
+  position: relative;
+}
+
+.circle0 {
+  height: 400px;
+  width: 400px;
+  background-color: rgb(120,120,120);
+  position: relative;
+  border-radius: 50%;
+}
+
+.circle1 {
+  height: 300px;
+  width: 300px;
+  background-color: rgb(180,180,180);
+  position: relative;
+  top: 46px;
+  left: 50px;
+border-radius: 50%;
+}
+
+.circle0:active{
+    filter: brightness(120%);
+}
+
+.circle2 {
+  height: 200px;
+  width: 200px;
+  background-color: #ddd;
+    position: absolute;
+  top: 50px;
+  left: 50px;
+  border-radius: 50%;
+}
+
+.circle3 {
+  height: 100px;
+  width: 100px;
+  background-color: rgb(130, 130, 130);
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  border-radius: 50%;
+}
+
+.linev {
+  position: absolute;
+  left: 50%;
+  width: 6px;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 0px;
+  transform: rotate(45deg);
+
+transform-origin: left;
+  z-index:6;
+}
+.lineh {
+  width: 100%;
+  top: 50%;
+  height: 6px;
+  background-color: #fff;
+  display:inline-block;
+  position: relative;
+  border-radius: 0px;
+  z-index:6;
+  transform: rotate(45deg);
+
+}
+
+
+.btns {
+    position: absolute;
+    top: 0.65rem;
+}
+.btm {
+    top: 21.65rem;
+}
+
+.rightposition{
+    position: absolute;
+    left: 22rem;
+}
+
+.homebtn {
+    position: absolute;
+    z-index: 1000;
+}
+
