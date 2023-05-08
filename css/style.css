@@ -98,3 +98,9 @@ transform-origin: left;
     z-index: 1000;
 }
 
+.btn-rounded {
+    border-radius: 20%;
+    filter: blur(1px) brightness(1.2);
+    border: 1px solid #fff;
+
+}

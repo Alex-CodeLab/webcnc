@@ -11,8 +11,36 @@
 </head>
 
 <body>
+
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+<!--    <div class="container-fluid">-->
+<!--        <a class="navbar-brand" href="#">WebNC</a>-->
+<!--        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"-->
+<!--                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link active" aria-current="page" href="#">HMI</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Features</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="#">Pricing</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
+
 <div class="container">
-    <div class="col-8">
+    <div class="row align-items-start">
+    <div class="col">
 
         <div class="card mb-3" style="min-width: 650px; ">
 
@@ -21,9 +49,9 @@
 
                     <span class="btns">
                         <button type="button" class="btn btn-primary btn-lg homebtn"
-                                onclick="sendHome(this, 'X')">X</button>
+                                onclick="homing(this, 'X')">X</button>
                         <button type="button" class="btn btn-primary btn-lg homebtn rightposition"
-                                onclick="sendHome(this, 'Y')">Y</button>
+                                onclick="homing(this, 'Y')">Y</button>
                     </span>
 
                     <div id="jog" class="circle0 shadow">
@@ -37,11 +65,11 @@
                         </div>
                         <span class="btns btm">
                             <button type="button" class="btn btn-primary btn-lg homebtn"
-                                    onclick="sendHome(this, '')">H</button>
+                                    onclick="homing(this, '')">H</button>
                             <button type="button" class="btn btn-primary btn-lg homebtn rightposition"
-                                    onclick="sendHome(this, 'Y')">Z</button>
+                                    onclick="homing(this, 'Y')">Z</button>
                         </span>
-                        
+
                     </div> <!--/jog-->
                     <br/>
 
@@ -113,17 +141,11 @@
 
         </div> <!--/card-->
 
-    </div> <!--/coll-->
-    <div class="col ">
-        <div class="card ">
+        <div class="card mb-3">
             <div class="card-header">
                 Commands
             </div>
             <div class="card-body">
-                <div class="outline">
-
-                    <textarea class="form-control" id="textArea" rows="8"></textarea>
-                </div>
                 <form class="form-inline">
                     <div class="input-group ">
                         <input class="form-control" type="text" placeholder="command input" id="command_msg"
@@ -134,9 +156,38 @@
                     </div>
                 </form>
 
-            </div><!-- /card-->
+            </div><!-- /card-body-->
         </div> <!-- /card-->
+
+        <div class="card mb-3">
+            <div class="card-header">
+                Log
+            </div>
+            <div class="card-body">
+                <div class="outline">
+
+                    <textarea class="form-control" id="log_textArea" rows="8"></textarea>
+                </div>
+
+            </div><!-- /card-body-->
+        </div> <!-- /card-->
+
+
     </div> <!--/coll-->
+
+    <div class="col">
+                <div class="card ">
+            <div class="card-header">
+                Status
+            </div>
+            <div class="card-body">
+                <div class="alert alert-danger" id="ws_status" role="alert">
+                      Websocket
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 </div>
 
 <script>
@@ -173,9 +224,14 @@
 
 
 
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+
+<script type="application/javascript" src="/js/commands.js"></script>
+<script type="application/javascript" src="/js/status.js"></script>
+
 </body>
 </html>
