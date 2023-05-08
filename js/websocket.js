@@ -3,7 +3,6 @@ const socket = new WebSocket('ws://192.168.1.105:81');
 
 socket.onopen = function(e) {
   console.log("[open] Connection established");
-  socket.send("?");
 };
 
 socket.onmessage = function(event) {
