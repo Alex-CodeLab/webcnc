@@ -1,6 +1,5 @@
 
 
-
 function addData(event){
     let ev= event.split(/\n/);
     var textarea =  document.getElementById("log_textArea");
@@ -20,4 +19,3 @@ function addData(event){
         }
     }
 }
-

@@ -5,7 +5,7 @@ WebCNC is a browser-based GUI for [FLuidNC](https://github.com/bdring/FluidNC/) 
 It runs on any device (laptop, tablet). 
 Websockets are used for communicating to ESP32/FluidNC.
 
-(currently it does not yet support embedded use on ESP32 using `index.gz`, because it requires some minification etc.)
+(currently it does not yet support embedded use on ESP32 using `index.html.gz`, because it requires some minification etc.)
 
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png" width="300">
 darkmode
@@ -31,7 +31,7 @@ todo:
 
 #### Installation
 
-- Set the correct ip_address in `main.js`
+- Set the correct ip_address in `websocket.js`
 - open index.html in a browser.
 
 (for development, use `httpwatcher` for auto-reload)

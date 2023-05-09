@@ -2,8 +2,7 @@
 function sendCommand(){
     var command_str =  document.getElementById("command_msg");
     command_str.value = command_str.value.trim();
-    socket.send(command_str.value);
-    socket.send('\n');
+    socket.send(command_str.value + '\n');
     console.log(command_str.value);
 }
 
