@@ -28,3 +28,36 @@ function getCirclePart(x, y) {
     }
   }
 }
+
+
+
+document.getElementById('jog').onclick = function(e) {
+      // e = Mouse click event.
+      if (e.target.tagName == "A") {
+
+          var rect = e.target.getBoundingClientRect();
+          console.log(rect.top, rect.left);
+          var x = e.clientX - rect.left ; //x position within the element.
+          var y = e.clientY - rect.top -9;  //y position within the element.
+          var p =  getCirclePart(x,y);
+          sendCommand2(this, p, '');
+          console.log(p);
+    }
+}
+
+    document.getElementById('jog').onmousemove = function(e) {
+      // e = Mouse click event.
+      if (e.target.tagName == "A") {
+          var rect = e.target.getBoundingClientRect();
+          var x = e.clientX - rect.left ; //x position within the element.
+          var y = e.clientY - rect.top -9;  //y position within the element.
+          var p =  getCirclePart(x,y);
+          if (typeof p !== 'undefined') {
+            document.getElementById('jog_help').value = p;
+          }
+          if (typeof p == 'undefined') {
+            document.getElementById('jog_help').value = '';
+          }
+    }
+}
+

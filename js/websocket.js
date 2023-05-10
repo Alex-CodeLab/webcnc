@@ -12,16 +12,8 @@ socket.onmessage = function(event) {
         reader = new FileReader();
         reader.onload = () => {
             console.log("Result: " + reader.result);
-            addData(reader.result);
-            if (reader.result){
-                const parts = reader.result.split('|');
-                for (part in parts){
-                   if (parts[part].startsWith('MPos')){
-                       setMPositions(parts[part]);
-    //                console.log(parts[part]);
-                   }
-
-                }
+            if (typeof handleData !== 'undefined'){
+                handleData(reader.result);
             }
         };
         reader.readAsText(event.data);

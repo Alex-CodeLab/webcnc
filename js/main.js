@@ -2,29 +2,41 @@
 
 var lastMessage = "";
 
-function addData(event){
-    if(event == null){
+function handleData(msg){
+    if(msg == null){
         return
     }
-    let ev= event.split(/\n/);
-
+    let ev= msg.split(/\r?\n/);
     var textarea =  document.getElementById("log_textArea");
-
-    var now = new Date().toLocaleTimeString('en-GB', {
-                                            hour: "numeric",
-                                            minute: "numeric",
-                                            second: "numeric"});
+    var date_now = new Date().toLocaleTimeString('en-GB', {
+                                        hour: "numeric",
+                                        minute: "numeric",
+                                        second: "numeric"});
     for (e in ev){
         if (ev[e] !== ""){
             console.log(ev[e])
-            const newMessage = now + "  " + ev[e] + "\n";
+            const newMessage = date_now + "  " + ev[e] + "\n";
             if (lastMessage !== newMessage){
-//              hide repeating messages
                 textarea.value +=  newMessage;
                 lastMessage = newMessage;
+                /* update log */
                 if(textarea.selectionStart == textarea.selectionEnd) {
                     textarea.scrollTop = textarea.scrollHeight;
                 }
+
+                var parts = ev[e].split('|');
+
+                for (part in parts){
+                   /* update status */
+                   if (parts[part].startsWith('<')){
+                            displayMachineStatus(parts[part].substring(1));
+                   }
+                   /* update Mpos */
+                   if (parts[part].startsWith('MPos')){
+                       setMPositions(parts[part]);
+
+                   }
+               }
             }
         }
     }
