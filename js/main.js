@@ -1,7 +1,13 @@
 
 
+var lastMessage = "";
+
 function addData(event){
+    if(event == null){
+        return
+    }
     let ev= event.split(/\n/);
+
     var textarea =  document.getElementById("log_textArea");
 
     var now = new Date().toLocaleTimeString('en-GB', {
@@ -11,10 +17,14 @@ function addData(event){
     for (e in ev){
         if (ev[e] !== ""){
             console.log(ev[e])
-            textarea.value +=  now + "  " + ev[e] + "\n";
-
-            if(textarea.selectionStart == textarea.selectionEnd) {
-                textarea.scrollTop = textarea.scrollHeight;
+            const newMessage = now + "  " + ev[e] + "\n";
+            if (lastMessage !== newMessage){
+//              hide repeating messages
+                textarea.value +=  newMessage;
+                lastMessage = newMessage;
+                if(textarea.selectionStart == textarea.selectionEnd) {
+                    textarea.scrollTop = textarea.scrollHeight;
+                }
             }
         }
     }

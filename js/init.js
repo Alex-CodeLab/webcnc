@@ -14,6 +14,9 @@ function initialize(){
 
 
 function setMPositions(data){
+    if(data == null){
+        return
+    }
     const mxyz = data.substring(5).split(',');
     document.getElementById("x_val_m").value = mxyz[0];
     document.getElementById("y_val_m").value = mxyz[1];

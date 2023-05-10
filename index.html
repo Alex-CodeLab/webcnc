@@ -40,12 +40,12 @@
 
 <div class="container">
     <div class="row align-items-start">
-    <div class="col">
+        <div class="col">
 
-        <div class="card mb-3" style="min-width: 650px; ">
+            <div class="card mb-3" style="min-width: 650px; ">
 
-            <div class="row g-0">
-                <div class="col-3 p-3" style="min-width: 450px; ">
+                <div class="row g-0">
+                    <div class="col-3 p-3" style="min-width: 450px; ">
 
                     <span class="btns">
                         <button type="button" class="btn btn-primary btn-lg homebtn"
@@ -54,143 +54,146 @@
                                 onclick="homing(this, 'Y')">Y</button>
                     </span>
 
-                    <div id="jog" class="circle0 shadow">
-                        <a href="#" class="stretched-link" style="cursor: crosshair;"></a>
-                        <div class="linev"></div>
-                        <div class="lineh"></div>
-                        <div class="circle1 shadow border2">
-                            <div class="circle2 shadow border2">
-                                <div class="circle3 shadow border2"></div>
+                        <div id="jog" class="circle0 shadow">
+                            <a href="#" class="stretched-link" style="cursor: crosshair;"></a>
+                            <div class="linev"></div>
+                            <div class="lineh"></div>
+                            <div class="circle1 shadow border2">
+                                <div class="circle2 shadow border2">
+                                    <div class="circle3 shadow border2"></div>
+                                </div>
                             </div>
-                        </div>
-                        <span class="btns btm">
+                            <span class="btns btm">
                             <button type="button" class="btn btn-primary btn-lg homebtn"
                                     onclick="homing(this, '')">H</button>
                             <button type="button" class="btn btn-primary btn-lg homebtn rightposition"
                                     onclick="homing(this, 'Z')">Z</button>
                         </span>
 
-                    </div> <!--/jog-->
-                    <br/>
+                        </div> <!--/jog-->
+                        <br/>
 
-                </div>
+                    </div>
 
-                <div class="col-2 p-3">
+                    <div class="col-2 p-3">
 
-                    <div class="btn-group-justified btn-group-md btn-group-vertical">
+                        <div class="btn-group-justified btn-group-md btn-group-vertical">
 
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 5, 'Z')">5</button>
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 1, 'Z')">1</button>
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 0.1, 'Z')">.1
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary">Z</button>
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -0.1, 'Z')">-.1
-                        </button>
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -1, 'Z')">-1
-                        </button>
-                        <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -5, 'Z')">-5
-                        </button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 5, 'Z')">5
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 1, 'Z')">1
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 0.1, 'Z')">.1
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary">Z</button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -0.1, 'Z')">-.1
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -1, 'Z')">-1
+                            </button>
+                            <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -5, 'Z')">-5
+                            </button>
 
-                        <input id="jog_help" class="form-control" type="text" value="" aria-label="example" readonly>
+                            <input id="jog_help" class="form-control" type="text" value="" aria-label="example"
+                                   readonly>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row p-3">
-                <div class="col-2">WPos</div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">X</div>
-                        <input id="x_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                <div class="row p-3">
+                    <div class="col-2">WPos</div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">X</div>
+                            <input id="x_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">Y</div>
+                            <input id="y_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">Z</div>
+                            <input id="z_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">Y</div>
-                        <input id="y_val" class="form-control" type="text" value="" aria-label="X" readonly>
+
+                <div class="row p-3">
+                    <div class="col-2">MPos</div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">X</div>
+                            <input id="x_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">Y</div>
+                            <input id="y_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="input-group">
+                            <div class="input-group-text">Z</div>
+                            <input id="z_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                        </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">Z</div>
-                        <input id="z_val" class="form-control" type="text" value="" aria-label="X" readonly>
+
+            </div> <!--/card-->
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Commands
+                </div>
+                <div class="card-body">
+                    <form class="form-inline">
+                        <div class="input-group ">
+                            <input class="form-control" type="text" placeholder="command input" id="command_msg"
+                                   aria-label="send command">
+                            <button class="btn btn-primary" id="command_msg_btn" type="button"
+                                    onclick="sendCommand()">
+                                Send
+                            </button>
+                        </div>
+                    </form>
+
+                </div><!-- /card-body-->
+            </div> <!-- /card-->
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Log
+                </div>
+                <div class="card-body">
+                    <div class="outline">
+
+                        <textarea class="form-control" id="log_textArea" rows="8"></textarea>
+                    </div>
+
+                </div><!-- /card-body-->
+            </div> <!-- /card-->
+
+
+        </div> <!--/coll-->
+
+        <div class="col">
+            <div class="card ">
+                <div class="card-header">
+                    Status
+                    <div class="form-check form-switch float-end">
+                        reports
+                        <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
                     </div>
                 </div>
-            </div>
-
-            <div class="row p-3">
-                <div class="col-2">MPos</div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">X</div>
-                        <input id="x_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">Y</div>
-                        <input id="y_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="input-group">
-                        <div class="input-group-text">Z</div>
-                        <input id="z_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
-                    </div>
-                </div>
-            </div>
-
-        </div> <!--/card-->
-
-        <div class="card mb-3">
-            <div class="card-header">
-                Commands
-            </div>
-            <div class="card-body">
-                <form class="form-inline">
-                    <div class="input-group ">
-                        <input class="form-control" type="text" placeholder="command input" id="command_msg"
-                               aria-label="send command">
-                        <button class="btn btn-primary" id="command_msg_btn" type="submit" onclick="sendCommand()">
-                            Send
-                        </button>
-                    </div>
-                </form>
-
-            </div><!-- /card-body-->
-        </div> <!-- /card-->
-
-        <div class="card mb-3">
-            <div class="card-header">
-                Log
-            </div>
-            <div class="card-body">
-                <div class="outline">
-
-                    <textarea class="form-control" id="log_textArea" rows="8"></textarea>
-                </div>
-
-            </div><!-- /card-body-->
-        </div> <!-- /card-->
-
-
-    </div> <!--/coll-->
-
-    <div class="col">
-                <div class="card ">
-            <div class="card-header">
-                Status
-                <div class="form-check form-switch float-end">
-                    reports
-                    <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
-                </div>
-            </div>
-            <div class="card-body">
-                <div class="alert alert-danger" id="ws_status" role="alert">
-                      Websocket
+                <div class="card-body">
+                    <div class="alert alert-danger" id="machine_status" role="alert">&nbsp;</div>
+                    <div class="alert alert-danger" id="ws_status" role="alert">Websocket</div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </div>
 
@@ -225,6 +228,7 @@
               }
         }
     }
+
 
 
 </script>
