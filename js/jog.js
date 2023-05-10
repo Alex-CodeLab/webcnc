@@ -40,7 +40,7 @@ document.getElementById('jog').onclick = function(e) {
           var x = e.clientX - rect.left ; //x position within the element.
           var y = e.clientY - rect.top -9;  //y position within the element.
           var p =  getCirclePart(x,y);
-          sendCommand2(this, p, '');
+          jogCommand(this, p, '');
           console.log(p);
     }
 }

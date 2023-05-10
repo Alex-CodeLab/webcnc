@@ -15,6 +15,12 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.classList.add("alert-success");
         machineStatusEl.innerHTML = "Home";
     }
+    if (msg == "jog"){
+        machineStatusEl.classList.remove("alert-danger");
+        machineStatusEl.classList.remove("alert-warning");
+        machineStatusEl.classList.add("alert-success");
+        machineStatusEl.innerHTML = "Jog";
+    }
     if (msg == "idle"){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-success");
