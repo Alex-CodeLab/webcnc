@@ -24,7 +24,7 @@
   width: 300px;
   background-color: rgb(180,180,180);
   position: relative;
-  top: 46px;
+  top: 30px;
   left: 50px;
 border-radius: 50%;
 }
@@ -67,7 +67,8 @@ transform-origin: left;
 }
 .lineh {
   width: 100%;
-  top: 50%;
+  top: 47%;
+
   height: 6px;
   background-color: #fff;
   display:inline-block;

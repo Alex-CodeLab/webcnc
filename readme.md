@@ -19,7 +19,7 @@ todo:
 - [x] send grbl messages from GUI
 - [x] real-time status display
 - [x] darkmode
-- [ ] track states
+- [x] track states
 - [ ] config/settings
 - [ ] minify, gulp, etc.
 - [ ] create embedded index.html.gz
