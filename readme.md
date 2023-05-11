@@ -20,10 +20,15 @@ todo:
 - [x] real-time status display
 - [x] darkmode
 - [x] track states
+- [x] tooltips
+- [x] start/stop controls
+- [ ] send control signals
+- [ ] send jogspeed
+- [x] read & select files / ssd
 - [ ] config/settings
 - [ ] minify, gulp, etc.
 - [ ] create embedded index.html.gz
-- [ ] file upload, etc.
+- [ ] file upload
 - [ ] docs
 - [ ] tests
 - [ ] ... much more
