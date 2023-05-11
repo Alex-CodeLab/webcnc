@@ -3,6 +3,7 @@ const machineStatusEl = document.getElementById('machine_status');
 
 function displayMachineStatus(statusmsg){
     const msg = statusmsg.toLowerCase();
+    console.log(msg);
     if (msg == "alarm"){
         machineStatusEl.classList.remove("alert-sucess");
         machineStatusEl.classList.remove("alert-warning");
@@ -26,17 +27,22 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.classList.remove("alert-success");
         machineStatusEl.classList.add("alert-warning");
         machineStatusEl.innerHTML = "Idle";
+        const control_pauseEl = document.getElementById('control_pause');
+        control_pauseEl.classList.remove('active');
+        const control_startEl = document.getElementById('control_start');
+        control_startEl.classList.remove('active');
     }
-    if (msg == "hold"){
+    if (msg.startsWith("hold")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-success");
         machineStatusEl.classList.add("alert-warning");
         machineStatusEl.innerHTML = "Hold";
+
     }
         if (msg == "run"){
         machineStatusEl.classList.remove("alert-danger");
-        machineStatusEl.classList.remove("alert-success");
-        machineStatusEl.classList.add("alert-warning");
+        machineStatusEl.classList.remove("alert-warning");
+        machineStatusEl.classList.add("alert-success");
         machineStatusEl.innerHTML = "Run";
     }
 }
