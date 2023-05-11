@@ -73,14 +73,14 @@
                             <span class="btns btm">
                             <button type="button" class="btn btn-primary btn-lg homebtn"
                                     onclick="homing(this, '')"
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="Home All">H</button>
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Home All">H</button>
                             <button type="button" class="btn btn-primary btn-lg homebtn rightposition"
                                     onclick="homing(this, 'Z')"
-                            data-bs-toggle="tooltip" data-bs-placement="top"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="Home Z">Z</button>
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    data-bs-custom-class="custom-tooltip"
+                                    data-bs-title="Home Z">Z</button>
                         </span>
 
                         </div> <!--/jog-->
@@ -110,9 +110,10 @@
                                    readonly>
 
                             <div class="range">
-                                <input type="range" class="form-range" id="jogspeed" data-bs-toggle="tooltip" data-bs-placement="right"
-                                data-bs-custom-class="custom-tooltip"
-                                data-bs-title="Jog speed (F)"/></div>
+                                <input type="range" class="form-range" id="jogspeed" data-bs-toggle="tooltip"
+                                       data-bs-placement="right"
+                                       data-bs-custom-class="custom-tooltip"
+                                       data-bs-title="Jog speed (F)"/></div>
 
 
                         </div>
@@ -200,7 +201,7 @@
         </div> <!--/coll-->
 
         <div class="col">
-            <div class="card ">
+            <div class="card mb-3 ">
                 <div class="card-header">
                     Status
                     <div class="form-check form-switch float-end">
@@ -212,9 +213,44 @@
                     <div class="alert alert-danger" id="machine_status" role="alert">&nbsp;</div>
                     <div class="alert alert-danger" id="ws_status" role="alert">Websocket</div>
                 </div>
-
-
             </div>
+
+            <div class="card mb-3">
+                <div class="card-header">Controls</div>
+                <div class="card-body">
+                    <div class="d-grid gap-2 d-md-block">
+                        <button class="btn btn-outline-success  m-3" type="button"><span style='font-size:30px;' data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="start"> &#x25BA;</span>
+                        </button>
+                        <button class="btn btn-outline-warning  m-3" type="button"><span style='font-size:30px;'
+                        data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="pause">&#9616;&nbsp;&#9612; </span>
+                        </button>
+                        <button class="btn btn btn-outline-danger  m-3" type="button"><span
+                                style='font-size:30px; padding:5px;'
+                        data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="stop">&#x25A0; </span>
+                        </button>
+                        <input class="form-control" id="selected_file" type="text" value="" aria-label="selected file or macro" readonly
+                               data-bs-toggle="tooltip" data-bs-placement="top"
+                               data-bs-custom-class="custom-tooltip"
+                               data-bs-title="selected file or macro">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">Files</div>
+                <div class="card-body">
+                    <div class="list-group" id="files"></div>
+                </div>
+            </div>
+
+
         </div>
     </div>
 </div>
@@ -227,10 +263,14 @@
 <script type="application/javascript" src="/js/commands.js"></script>
 <script type="application/javascript" src="/js/status.js"></script>
 <script type="application/javascript" src="/js/init.js"></script>
+<script type="application/javascript" src="/js/files.js"></script>
 
 <script>
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+
+
 
 
 

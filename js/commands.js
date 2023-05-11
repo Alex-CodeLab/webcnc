@@ -34,3 +34,7 @@ function homing(el, axis ){
 }
 
 
+function SendRealtimeCmd(code) {
+    var cmd = String.fromCharCode(code)
+    SendPrinterCommand(cmd, false, null, null, code, 1);
+}

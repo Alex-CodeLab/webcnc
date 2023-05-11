@@ -1,5 +1,5 @@
-
-const socket = new WebSocket('ws://192.168.1.105:81');
+const IPADDRESS = '192.168.1.105'
+const socket = new WebSocket('ws://'+ IPADDRESS +':81');
 
 socket.onopen = function(e) {
   console.log("[open] Connection established");
@@ -37,3 +37,5 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   console.log(`[error]`);
 };
+
+

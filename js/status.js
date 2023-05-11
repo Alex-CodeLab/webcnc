@@ -27,6 +27,18 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.classList.add("alert-warning");
         machineStatusEl.innerHTML = "Idle";
     }
+    if (msg == "hold"){
+        machineStatusEl.classList.remove("alert-danger");
+        machineStatusEl.classList.remove("alert-success");
+        machineStatusEl.classList.add("alert-warning");
+        machineStatusEl.innerHTML = "Hold";
+    }
+        if (msg == "run"){
+        machineStatusEl.classList.remove("alert-danger");
+        machineStatusEl.classList.remove("alert-success");
+        machineStatusEl.classList.add("alert-warning");
+        machineStatusEl.innerHTML = "Run";
+    }
 }
 
 

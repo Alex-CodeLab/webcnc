@@ -104,3 +104,6 @@ transform-origin: left;
     border: 1px solid #fff;
 
 }
+
+.icon-ff:before { content: "\23E9" }
+.icon-ff--standard:before { content: "\23E9\FE0E" }
