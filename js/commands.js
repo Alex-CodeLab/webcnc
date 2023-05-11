@@ -32,9 +32,3 @@ function homing(el, axis ){
     var msgstr = '$H'+axis +'\n' ;
     socket.send(msgstr);
 }
-
-
-function SendRealtimeCmd(code) {
-    var cmd = String.fromCharCode(code)
-    SendPrinterCommand(cmd, false, null, null, code, 1);
-}

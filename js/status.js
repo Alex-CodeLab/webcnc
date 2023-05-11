@@ -3,7 +3,6 @@ const machineStatusEl = document.getElementById('machine_status');
 
 function displayMachineStatus(statusmsg){
     const msg = statusmsg.toLowerCase();
-    console.log(msg);
     if (msg == "alarm"){
         machineStatusEl.classList.remove("alert-sucess");
         machineStatusEl.classList.remove("alert-warning");

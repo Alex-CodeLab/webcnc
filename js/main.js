@@ -14,7 +14,6 @@ function handleData(msg){
                                         second: "numeric"});
     for (e in ev){
         if (ev[e] !== ""){
-            console.log(ev[e])
             const newMessage = date_now + "  " + ev[e] + "\n";
             if (lastMessage !== newMessage){
                 textarea.value +=  newMessage;
