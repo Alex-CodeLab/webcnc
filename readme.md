@@ -22,7 +22,7 @@ todo:
 - [x] track states
 - [x] tooltips
 - [x] start/stop controls
-- [ ] send control signals
+- [x] send control signals
 - [ ] send jogspeed
 - [x] read & select files / ssd
 - [ ] config/settings
@@ -36,9 +36,12 @@ todo:
 #### Installation
 
 - Set the correct ip_address in `websocket.js`
-- open index.html in a browser.
+For development, start a simple webserver. There are a few options:
+- `python -m SimpleHTTPServer`
+- if using Pycharm IDE (or similar), use the build in server to open index.html
+- or, for autoreload during development, use `httpwatcher`
 
-(for development, use `httpwatcher` for auto-reload)
+(disable CORS if you want to update settings. This wont be required once it runs on the ESP32).
 
 #### Contribute
 

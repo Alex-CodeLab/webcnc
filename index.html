@@ -24,9 +24,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">HMI</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#collapseSettings" aria-expanded="false"
                        aria-controls="collapseSettings" onclick="activate_settings()">Settings</a>
                 </li>
@@ -43,12 +40,13 @@
 
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-config-tab" data-bs-toggle="tab" data-bs-target="#nav-config"
-                        type="button" role="tab" aria-controls="nav-config" aria-selected="true">Config Items
-                </button>
 
                 <button class="nav-link" id="nav-flash-tab" data-bs-toggle="tab" data-bs-target="#nav-flash"
-                        type="button" role="tab" aria-controls="nav-flash" aria-selected="false">Flash settings
+                        type="button" role="tab" aria-controls="nav-flash" aria-selected="true">Flash settings
+                </button>
+
+                <button class="nav-link active" id="nav-config-tab" data-bs-toggle="tab" data-bs-target="#nav-config"
+                        type="button" role="tab" aria-controls="nav-config" aria-selected="false">Config Items
                 </button>
 
                 <button class="nav-link" id="nav-filesystem-tab" data-bs-toggle="tab" data-bs-target="#nav-fs"
@@ -56,7 +54,8 @@
                 </button>
 
                 <button class="nav-link" id="nav-system-tab" data-bs-toggle="tab" data-bs-target="#nav-system"
-                        type="button" role="tab" aria-controls="nav-system" aria-selected="false">System Status
+                        type="button" role="tab" aria-controls="nav-system" aria-selected="false"
+                        onclick="get_system_status()">System Status
                 </button>
             </div>
 
@@ -65,14 +64,16 @@
         <div class="tab-content m-3" id="nav-tabContent">
 
 
-            <div class="tab-pane fade show active" id="nav-config" role="tabpanel" aria-labelledby="nav-config-tab">
-                <div class="card p-3" id="nav-config-c"></div>
-            </div>
             <div class="tab-pane fade" id="nav-flash" role="tabpanel" aria-labelledby="nav-flash-tab">
                 <div class="card p-3" id="nav-flash-c"></div>
             </div>
+            <div class="tab-pane fade show active" id="nav-config" role="tabpanel" aria-labelledby="nav-config-tab">
+                <div class="card p-3" id="nav-config-c"></div>
+            </div>
             <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">2</div>
-            <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">3</div>
+            <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">
+                <div class="card p-3" id="nav-system-c"></div>
+            </div>
         </div>
     </div>
 
