@@ -15,7 +15,7 @@ function display_files(files){
     var files_div = document.getElementById('files');
     files_div.innerHTML = "";
     var files_display ='';
-    for (const file in obj['files']){
+    for (let file in obj['files']){
       files_display +='<a href="#" class="list-group-item list-group-item-action" onclick="select_file(this)">' + obj['files'][file].name +'</a>';
     }
     files_div.innerHTML = files_display;

@@ -104,6 +104,9 @@ transform-origin: left;
     border: 1px solid #fff;
 
 }
+.input-group-text_config{
+    width: 160px;
+}
 
 .icon-ff:before { content: "\23E9" }
 .icon-ff--standard:before { content: "\23E9\FE0E" }
