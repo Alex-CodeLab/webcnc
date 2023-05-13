@@ -10,7 +10,9 @@ darkmode
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/darkmode.png" width="300">
 
 ### Status:
-beta, needs work.  
+Testing.
+
+(if you want to help out, pls test it, and create [bug-reports](https://github.com/Alex-CodeLab/webcnc/issues) )
 
 todo:
 - [x] jog, using pure css 
@@ -30,9 +32,9 @@ todo:
 - [x] save config
 - [x] display  system info
 - [ ] manage files, folders
-- [ ] minify 
-- [ ] create embedded index.html.gz
 - [ ] file upload
+- [ ] minify 
+- [x] create embedded index.html.gz
 - [ ] docs
 - [ ] tests
 - [ ] ...
@@ -48,10 +50,23 @@ For development, start a simple webserver. There are a few options:
 If using Pycharm IDE (or similar), use the build-in server to open index.html.
 Or, for auto-reload during development, use `httpwatcher`
 
-(disable CORS if you want to update settings. This won't be required once it runs on the ESP32).
+(Note: Disable CORS if you want to update the settings (there are browswer plugins for this). This won't be required once it runs on the ESP32).
+
+
+#### embedded index.html
+The file `index.html.gz` can be generated: 
+
+    python make_index.py
+
+For safety, First download/backup your current `index.html.gz` from the ESP,
+and make sure you know how to write it back (using [Fluidterm](https://github.com/bdring/FluidNC/tree/main/fluidterm) )
+
+Then upload your new `index.html.gz`.   
+
 
 #### Contribute
-
+This is an Opensource project - all contributions appreciated!
+    
     - Fork it (https://github.com/yourname/yourproject/fork)
     - Create your feature branch (git checkout -b feature/fooBar)
     - Commit your changes (git commit -am 'Add some fooBar')
