@@ -37,9 +37,7 @@ function save_config(field_id, t){
        }
     })
        .then(response => response.text())
-       .then(text =>console.log('save config: 'text))
-
-
+       .then(text =>console.log('save config:', text))
 }
 
 

@@ -10,7 +10,7 @@ darkmode
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/darkmode.png" width="300">
 
 ### Status:
-not ready, needs work.  
+beta, needs work.  
 
 todo:
 - [x] jog, using pure css 
