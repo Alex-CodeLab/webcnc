@@ -26,15 +26,16 @@ todo:
 - [ ] send jogspeed
 - [x] read & select files / ssd
 - [x] config/settings
-- [x] settings
-- [x] system info
+- [x] read settings
+- [x] save config
+- [x] display  system info
 - [ ] manage files, folders
-- [ ] minify, gulp, etc.
+- [ ] minify 
 - [ ] create embedded index.html.gz
 - [ ] file upload
 - [ ] docs
 - [ ] tests
-- [ ] ... much more
+- [ ] ...
 
 #### Installation
 
@@ -44,7 +45,7 @@ For development, start a simple webserver. There are a few options:
 
     python -m SimpleHTTPServer
 
-if using Pycharm IDE (or similar), use the build-in server to open index.html.
+If using Pycharm IDE (or similar), use the build-in server to open index.html.
 Or, for auto-reload during development, use `httpwatcher`
 
 (disable CORS if you want to update settings. This won't be required once it runs on the ESP32).
