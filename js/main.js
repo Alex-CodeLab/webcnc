@@ -1,6 +1,8 @@
 
 
 var lastMessage = "";
+var msg_count = 0;
+
 
 function handleData(msg){
     if(msg == null){
@@ -17,6 +19,14 @@ function handleData(msg){
             const newMessage = date_now + "  " + ev[e] + "\n";
             if (lastMessage !== newMessage){
                 textarea.value +=  newMessage;
+
+                msg_count += 1;
+                if (msg_count > 999) {
+                    // limit the length of the text-area
+                    var i = textarea.value.indexOf("\n") + 1;
+                    textarea.value = textarea.value.substring(0, i);
+                }
+
                 lastMessage = newMessage;
                 /* update log */
                 if(textarea.selectionStart == textarea.selectionEnd) {

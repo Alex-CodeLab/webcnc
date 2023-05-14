@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" data-bs-theme="light">
+<html lang="en" data-bs-theme="dark">
 <head>
     <title>WebCNC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui">
@@ -47,7 +47,8 @@
                         type="button" role="tab" aria-controls="nav-config" aria-selected="false">Config Items
                 </button>
 
-                <button class="nav-link" id="nav-filesystem-tab" data-bs-toggle="tab" data-bs-target="#nav-fs"
+                <button class="nav-link" id="nav-filesystem-tab" onclick="fs_list_files()" data-bs-toggle="tab"
+                        data-bs-target="#nav-fs"
                         type="button" role="tab" aria-controls="nav-fs" aria-selected="false">Local Filesystem
                 </button>
 
@@ -68,7 +69,26 @@
             <div class="tab-pane fade show active" id="nav-config" role="tabpanel" aria-labelledby="nav-config-tab">
                 <div class="card p-3" id="nav-config-c"></div>
             </div>
-            <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">2</div>
+            <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">
+                <div class="card p-3" id="nav-files-c">
+
+                    <div class="container">
+
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileInput"
+                                       aria-describedby="customFileInput">
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="fs"> ...loading</div>
+            </div>
+
             <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">
                 <div class="card p-3" id="nav-system-c"></div>
             </div>
@@ -315,6 +335,7 @@
 <script>
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 
 </script>
 </body>

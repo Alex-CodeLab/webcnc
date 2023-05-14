@@ -32,8 +32,7 @@ todo:
 - [x] save config
 - [x] display  system info
 - [ ] manage files, folders
-- [ ] file upload
-- [ ] minify 
+- [x] file upload 
 - [x] create embedded index.html.gz
 - [ ] docs
 - [ ] tests

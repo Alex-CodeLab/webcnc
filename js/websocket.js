@@ -1,5 +1,5 @@
-const IPADDRESS = '192.168.1.105'
-//const IPADDRESS = document.location.host;
+//const IPADDRESS = '192.168.1.105'
+const IPADDRESS = document.location.host;
 const socket = new WebSocket('ws://'+ IPADDRESS +':81');
 
 socket.onopen = function(e) {
@@ -7,12 +7,9 @@ socket.onopen = function(e) {
 };
 
 socket.onmessage = function(event) {
-    console.log('[message] Data received from server: ${event.data}');
-
       if (event.data instanceof Blob) {
         reader = new FileReader();
         reader.onload = () => {
-            console.log("Result: " + reader.result);
             if (typeof handleData !== 'undefined'){
                 handleData(reader.result);
             }
