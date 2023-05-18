@@ -11,7 +11,6 @@ function getCirclePart(x, y) {
   const rotatedX = (x - centerX) * Math.cos(angle) - (y - centerY) * Math.sin(angle) + centerX;
   const rotatedY = (x - centerX) * Math.sin(angle) + (y - centerY) * Math.cos(angle) + centerY;
 
-
   if (rotatedX >= centerX && rotatedY < centerY) {
     ret= "Y";
   } else if (rotatedX >= centerX && rotatedY >= centerY) {
@@ -36,7 +35,6 @@ document.getElementById('jog').onclick = function(e) {
       if (e.target.tagName == "A") {
 
           var rect = e.target.getBoundingClientRect();
-          console.log(rect.top, rect.left);
           var x = e.clientX - rect.left ; //x position within the element.
           var y = e.clientY - rect.top -9;  //y position within the element.
           var p =  getCirclePart(x,y);

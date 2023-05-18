@@ -87,6 +87,11 @@ transform-origin: left;
 .btm {
     top: 21.65rem;
 }
+.btn-xsm {
+    --bs-btn-padding-y: 0.15rem;
+    --bs-btn-padding-x: 0.4rem;
+    --bs-btn-font-size: 0.7rem;
+}
 
 .rightposition{
     position: absolute;

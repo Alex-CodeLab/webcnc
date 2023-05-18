@@ -16,7 +16,12 @@ function display_files(files){
     files_div.innerHTML = "";
     var files_display ='';
     for (let file in obj['files']){
-      files_display +='<a href="#" class="list-group-item list-group-item-action" onclick="select_file(this)">' + obj['files'][file].name +'</a>';
+      files_display += '<li class="list-group-item list-group-item-action">'
+      files_display += '<span onclick="select_file(this)" >'+ obj['files'][file].name + '</span>'
+      files_display += '<button class="btn btn-xsm btn-danger float-end" onclick="delete_file(\''
+      files_display += obj['files'][file].name
+      files_display += '\')">x</button>'
+      files_display += '</li>'
     }
     files_div.innerHTML = files_display;
 }
@@ -24,10 +29,56 @@ list_files();
 
 
 function select_file(el){
-    const selected_file = document.getElementById('selected_file');
-    selected_file.value = el.innerHTML;
+//    const element = document.getElementById('selected_file');
+
+    selected_file.value = el.textContent
 }
 
+uploadButton = document.getElementById('uploadbtn').addEventListener('click', handleUploadButtonClick);
+const fileInp = document.getElementById('fileInp');
+const endpoint = 'http://'+ IPADDRESS +'/upload';
+
+function handleUploadButtonClick() {
+      // Trigger file input click event
+  document.getElementById('fileInp').click();
+}
+
+document.getElementById('fileInp').addEventListener('change', handleFileInputChange);
+
+// Function to handle file input change
+function handleFileInputChange(event) {
+  const file = fileInp.files[0];
+
+  if (file) {
+    // Create a new FormData object
+    const formData = new FormData();
+    formData.append('myfile[]', file, file.name );
+    // Make a POST request to the server using Fetch API
+    fetch('/upload', {
+      method: 'post',
+      body: formData
+    })
+      .then(response => {
+        // Handle the response from the server
+        console.log('File uploaded successfully');
+        console.log(response);
+      })
+      .catch(error => {
+        console.error('Error uploading file:', error);
+      });
+  }
+}
+
+function delete_file(el, path){
+    var action = 'path=%2F&action=delete&filename=' + el
+    fetch('http://'+ IPADDRESS +'/upload?' + action, {
+       headers: {
+          'Accept': 'application/json'
+       }
+    })
+       .then(response => response.text())
+       .then(text => list_files())
+}
 
 
 // FS
@@ -57,16 +108,16 @@ function fs_display_files(f){
     files_div.innerHTML = t;
 }
 
-const uploadButton = document.getElementById('FileInputbtn');
+const fsuploadButton = document.getElementById('FileInputbtn');
 const fileInput = document.getElementById('fileInput');
-const endpoint = 'http://'+ IPADDRESS +'/files';
+const fsendpoint = 'http://'+ IPADDRESS +'/files';
 
-uploadButton.addEventListener('click', () => {
+fsuploadButton.addEventListener('click', () => {
         const file = fileInput.files[0];
         const formData = new FormData();
         formData.append('path', '');
         formData.append('myfiles[]', file);
-        fetch(endpoint, {
+        fetch(fsendpoint, {
           method: 'POST',
           headers: {
             'Accept': 'application/json'
