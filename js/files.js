@@ -62,6 +62,7 @@ function handleFileInputChange(event) {
         // Handle the response from the server
         console.log('File uploaded successfully');
         console.log(response);
+        list_files();
       })
       .catch(error => {
         console.error('Error uploading file:', error);

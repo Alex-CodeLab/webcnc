@@ -85,7 +85,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="fs"> ...loading</div>
             </div>
 
@@ -172,8 +171,6 @@
                                        data-bs-placement="right"
                                        data-bs-custom-class="custom-tooltip"
                                        data-bs-title="Jog speed (F)"/></div>
-
-
                         </div>
                     </div>
                 </div>
@@ -220,8 +217,20 @@
                         </div>
                     </div>
                 </div>
-
             </div> <!--/card-->
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    Log
+                </div>
+                <div class="card-body">
+                    <div class="outline">
+                        <label for="log_textArea"></label><textarea class="form-control" id="log_textArea" rows="8"
+                                                                    readonly></textarea>
+                    </div>
+                </div><!-- /card-body-->
+            </div> <!-- /card-->
+
 
             <div class="card mb-3">
                 <div class="card-header">
@@ -241,21 +250,6 @@
 
                 </div><!-- /card-body-->
             </div> <!-- /card-->
-
-            <div class="card mb-3">
-                <div class="card-header">
-                    Log
-                </div>
-                <div class="card-body">
-                    <div class="outline">
-
-                        <label for="log_textArea"></label><textarea class="form-control" id="log_textArea" rows="8"
-                                                                    readonly></textarea>
-                    </div>
-
-                </div><!-- /card-body-->
-            </div> <!-- /card-->
-
 
         </div> <!--/coll-->
 
@@ -337,8 +331,6 @@
 <script>
     const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
     const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-
-
 </script>
 </body>
 </html>
