@@ -16,6 +16,9 @@ function display_files(files){
     files_div.innerHTML = "";
     var files_display ='';
     for (let file in obj['files']){
+      if (obj['files'][file].size == -1) {
+        continue;
+      }
       files_display += '<li class="list-group-item list-group-item-action">'
       files_display += '<span onclick="select_file(this)" >'+ obj['files'][file].name + '</span>'
       files_display += '<button class="btn btn-xsm btn-danger float-end" onclick="delete_file(\''
@@ -39,7 +42,6 @@ const fileInp = document.getElementById('fileInp');
 const endpoint = 'http://'+ IPADDRESS +'/upload';
 
 function handleUploadButtonClick() {
-      // Trigger file input click event
   document.getElementById('fileInp').click();
 }
 
@@ -48,7 +50,6 @@ document.getElementById('fileInp').addEventListener('change', handleFileInputCha
 // Function to handle file input change
 function handleFileInputChange(event) {
   const file = fileInp.files[0];
-
   if (file) {
     // Create a new FormData object
     const formData = new FormData();
@@ -62,6 +63,8 @@ function handleFileInputChange(event) {
         // Handle the response from the server
         console.log('File uploaded successfully');
         console.log(response);
+        fileInp.value = null;
+
         list_files();
       })
       .catch(error => {
