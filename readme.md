@@ -10,9 +10,8 @@ darkmode
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/darkmode.png" width="300">
 
 ### Status:
-Testing.
+Alpha
 
-(if you want to help out, pls test it, and create [bug-reports](https://github.com/Alex-CodeLab/webcnc/issues) )
 
 todo:
 - [x] jog, using pure css 
@@ -31,7 +30,8 @@ todo:
 - [x] read settings
 - [x] save config
 - [x] display  system info
-- [ ] manage files, folders
+- [x] manage files
+- [ ] manage folders
 - [x] file upload 
 - [x] create embedded index.html.gz
 - [ ] docs
@@ -40,27 +40,30 @@ todo:
 
 #### Installation
 
+Upload `index.html.gz` to your device.
+
+
+Or, if you want to use it from a local (development) computer: 
+
 - Set the correct ip_address in `websocket.js`
 
-For development, start a simple webserver. There are a few options:
+and start a simple webserver. There are a few options:
 
     python -m SimpleHTTPServer
 
 If using Pycharm IDE (or similar), use the build-in server to open index.html.
 Or, for auto-reload during development, use `httpwatcher`
 
-(Note: Disable CORS if you want to update the settings (there are browswer plugins for this). This won't be required once it runs on the ESP32).
+(Note: Some things do not work if CORS is not disabled in the browser).
 
 
 #### embedded index.html
-The file `index.html.gz` can be generated: 
+The file `index.html.gz` can be generated with the command: 
 
     python make_index.py
 
-For safety, First download/backup your current `index.html.gz` from the ESP,
-and make sure you know how to write it back (using [Fluidterm](https://github.com/bdring/FluidNC/tree/main/fluidterm) )
-
-Then upload your new `index.html.gz`.   
+Alternative upload method: 
+[Fluidterm](https://github.com/bdring/FluidNC/tree/main/fluidterm)
 
 
 #### Contribute
