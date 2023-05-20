@@ -2,26 +2,26 @@
 const machineStatusEl = document.getElementById('machine_status');
 
 function displayMachineStatus(statusmsg){
-    const msg = statusmsg.toLowerCase();
-    if (msg == "alarm"){
+    let msg = statusmsg.toLowerCase();
+    if (msg.startsWith("alarm")){
         machineStatusEl.classList.remove("alert-sucess");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-danger");
         machineStatusEl.innerHTML = "Alarm";
         }
-    if (msg == "home"){
+    if (msg.startsWith("home")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");
         machineStatusEl.innerHTML = "Home";
     }
-    if (msg == "jog"){
+    if (msg.startsWith("jog")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");
         machineStatusEl.innerHTML = "Jog";
     }
-    if (msg == "idle"){
+    if (msg.startsWith("idle")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-success");
         machineStatusEl.classList.add("alert-warning");
@@ -38,7 +38,7 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.innerHTML = "Hold";
 
     }
-        if (msg == "run"){
+        if (msg.startsWith("run")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");

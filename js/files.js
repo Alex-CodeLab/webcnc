@@ -139,3 +139,8 @@ fsuploadButton.addEventListener('click', () => {
           alert('Error uploading file');
         });
       });
+
+
+function show_spinner() {
+ var el = document.getElementById()
+}

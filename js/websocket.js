@@ -1,6 +1,6 @@
-const IPADDRESS = '192.168.1.105'
-//const IPADDRESS = document.location.host;
-const socket = new WebSocket('ws://'+ IPADDRESS +':81');
+//const IPADDRESS = '192.168.1.105'
+const IPADDRESS = document.location.host;
+const socket = new ReconnectingWebSocket('ws://'+ IPADDRESS +':81');
 
 socket.onopen = function(e) {
   console.log("[open] Connection established");
