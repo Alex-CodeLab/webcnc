@@ -100,7 +100,7 @@ transform-origin: left;
 
 .homebtn {
     position: absolute;
-    z-index: 1000;
+    z-index: 99;
 }
 
 .btn-rounded {
