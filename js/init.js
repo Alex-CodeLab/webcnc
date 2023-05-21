@@ -2,7 +2,9 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   console.log("Init...");
+  document.getElementById('nav-dashboard-tab').click();
   setTimeout(initialize, 3000);
+  activate_settings();
 });
 
 function initialize(){
@@ -10,6 +12,7 @@ function initialize(){
       socket.send("?");
       socket.send('$Report/Interval=50\n');  // default
   }
+
 }
 
 
