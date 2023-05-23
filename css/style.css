@@ -185,6 +185,7 @@ body {
     outline-offset: 1px;
     }
 
+
 .home0 {
   height: 500px;
   width: 500px;
@@ -296,3 +297,25 @@ transform-origin: left;
 
 .icon-ff:before { content: "\23E9" }
 .icon-ff--standard:before { content: "\23E9\FE0E" }
+
+
+.alert-warning {
+    --bs-alert-color: var(--bs-warning-text-emphasis);
+    --bs-alert-bg: var(--bs-warning);
+    --bs-alert-border-color: #8d7630;
+    --bs-alert-link-color: var(--bs-warning-text-emphasis);
+}
+
+.alert-success {
+    --bs-alert-color: var(--bs-success-text-emphasis);
+    --bs-alert-bg: var(--bs-success-text-emphasis);
+    --bs-alert-border-color: var(--bs-success-border-subtle);
+    --bs-alert-link-color: var(--bs-success-text-emphasis);
+}
+
+.alert-danger {
+    --bs-alert-color: var(--bs-danger-text-emphasis);
+    --bs-alert-bg: var(--bs-danger);
+    --bs-alert-border-color: var(--bs-danger-border-subtle);
+    --bs-alert-link-color: var(--bs-danger-text-emphasis);
+}

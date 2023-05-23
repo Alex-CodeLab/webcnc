@@ -20,6 +20,9 @@
     <div class="header_toggle">
         <i class="bx bx-menu" id="header-toggle"></i>
     </div>
+
+    Status: <div class="alert alert-danger" id="machine_status" role="alert"></div><span id="machine_status_text"></span>
+                        Websocket: <div class="alert alert-danger" id="ws_status" role="alert"></div>
 </header>
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
@@ -54,6 +57,7 @@
                     <i class="bx bx-info-circle nav_icon"></i>
                     <span class="nav_name">System info</span>
                 </a>
+
 
             </div>
         </div>
@@ -282,19 +286,19 @@
             </div> <!--/coll-->
 
             <div class="col">
-                <div class="card mb-3 ">
-                    <div class="card-header">
-                        Status
-                        <div class="form-check form-switch float-end">
-                            reports
-                            <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-danger" id="machine_status" role="alert">&nbsp;</div>
-                        <div class="alert alert-danger" id="ws_status" role="alert">Websocket</div>
-                    </div>
-                </div>
+<!--                <div class="card mb-3 ">-->
+<!--                    <div class="card-header">-->
+<!--                        Status-->
+<!--                        <div class="form-check form-switch float-end">-->
+<!--                            reports-->
+<!--                            <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <div class="card-body">-->
+<!--                        <div class="alert alert-danger" id="machine_status" role="alert">&nbsp;</div>-->
+<!--                        <div class="alert alert-danger" id="ws_status" role="alert">Websocket</div>-->
+<!--                    </div>-->
+<!--                </div>-->
 
                 <div class="card mb-3">
                     <div class="card-header">Controls</div>
@@ -394,6 +398,7 @@
 
     // Your code to run since DOM is loaded and ready
   });
+
 
 
 </script>

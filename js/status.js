@@ -1,5 +1,6 @@
 
 const machineStatusEl = document.getElementById('machine_status');
+const machineStatusText = document.getElementById('machine_status_text');
 
 function displayMachineStatus(statusmsg){
     let msg = statusmsg.toLowerCase();
@@ -7,25 +8,25 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.classList.remove("alert-sucess");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-danger");
-        machineStatusEl.innerHTML = "Alarm";
+        machineStatusText.innerHTML = "Alarm";
         }
     if (msg.startsWith("home")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");
-        machineStatusEl.innerHTML = "Home";
+        machineStatusText.innerHTML = "Home";
     }
     if (msg.startsWith("jog")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");
-        machineStatusEl.innerHTML = "Jog";
+        machineStatusText.innerHTML = "Jog";
     }
     if (msg.startsWith("idle")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-success");
         machineStatusEl.classList.add("alert-warning");
-        machineStatusEl.innerHTML = "Idle";
+        machineStatusText.innerHTML = "Idle";
         const control_pauseEl = document.getElementById('control_pause');
         control_pauseEl.classList.remove('active');
         const control_startEl = document.getElementById('control_start');
@@ -35,14 +36,14 @@ function displayMachineStatus(statusmsg){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-success");
         machineStatusEl.classList.add("alert-warning");
-        machineStatusEl.innerHTML = "Hold";
+        machineStatusText.innerHTML = "Hold";
 
     }
         if (msg.startsWith("run")){
         machineStatusEl.classList.remove("alert-danger");
         machineStatusEl.classList.remove("alert-warning");
         machineStatusEl.classList.add("alert-success");
-        machineStatusEl.innerHTML = "Run";
+        machineStatusText.innerHTML = "Run";
     }
 }
 
