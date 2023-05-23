@@ -4,7 +4,7 @@
     <title>WebCNC</title>
     <script src="js/reconnectingwebsocket.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <script src="js/websocket.js"></script>
     <script src="js/main.js"></script>
@@ -24,8 +24,7 @@
         </span>
         <div class="alert alert-danger" id="machine_status" role="alert"></div>
         <span id="machine_status_text" class="navbar-text"></span>
-        <span class="navbar-text">
-            Connected:</span>
+        <span class="navbar-text">  Connected:</span>
         <div class="alert alert-danger" id="ws_status" role="alert"></div>
     </span>
 </header>
@@ -259,6 +258,9 @@
                 <div class="card mb-3">
                     <div class="card-header">
                         Log
+                        <div class="form-check form-switch float-end">
+                            <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="outline">
