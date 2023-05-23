@@ -4,26 +4,32 @@
     <title>WebCNC</title>
     <script src="js/reconnectingwebsocket.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
 
     <script src="js/websocket.js"></script>
     <script src="js/main.js"></script>
     <script src="js/settings.js"></script>
     <link href="css/style.css" rel="stylesheet">
-    <link
-            href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
-            rel="stylesheet"
-    />
+    <link rel="stylesheet" href='https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css'>
+
 </head>
 <body id="body-pd">
 <header class="header" id="header">
     <div class="header_toggle">
         <i class="bx bx-menu" id="header-toggle"></i>
     </div>
-
-    Status: <div class="alert alert-danger" id="machine_status" role="alert"></div><span id="machine_status_text"></span>
-                        Websocket: <div class="alert alert-danger" id="ws_status" role="alert"></div>
+    <span class="d-flex">
+        <span class="navbar-text">
+        Status:
+        </span>
+        <div class="alert alert-danger" id="machine_status" role="alert"></div>
+        <span id="machine_status_text" class="navbar-text"></span>
+        <span class="navbar-text">
+            Connected:</span>
+        <div class="alert alert-danger" id="ws_status" role="alert"></div>
+    </span>
 </header>
+
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
@@ -58,13 +64,12 @@
                     <span class="nav_name">System info</span>
                 </a>
 
-
             </div>
         </div>
     </nav>
 </div>
 
-
+<main class="container">
 <div class="tab-content m-3" id="nav-tabContent">
 
 
@@ -87,19 +92,19 @@
 
         <div id="fs">
             <div class="card p-3">
-            <div class="containe m-3">
-                <div class="row" id="folder-list"></div>
+                <div class="containe m-3">
+                    <div class="row" id="folder-list"></div>
 
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="fileInput" aria-describedby="customFileInput">
-                    </div>
-                    <div class="input-group-append">
-                        <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
+                    <div class="input-group">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="fileInput"
+                                   aria-describedby="customFileInput">
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
+                        </div>
                     </div>
                 </div>
-</div>
-
 
 
                 <h1>Files</h1>
@@ -286,19 +291,6 @@
             </div> <!--/coll-->
 
             <div class="col">
-<!--                <div class="card mb-3 ">-->
-<!--                    <div class="card-header">-->
-<!--                        Status-->
-<!--                        <div class="form-check form-switch float-end">-->
-<!--                            reports-->
-<!--                            <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="card-body">-->
-<!--                        <div class="alert alert-danger" id="machine_status" role="alert">&nbsp;</div>-->
-<!--                        <div class="alert alert-danger" id="ws_status" role="alert">Websocket</div>-->
-<!--                    </div>-->
-<!--                </div>-->
 
                 <div class="card mb-3">
                     <div class="card-header">Controls</div>
@@ -347,11 +339,11 @@
                         <ul class="list-group" id="files"></ul>
                     </div>
                 </div>
-
+                </div>
             </div>
         </div>
     </div>
-</div>
+</main>
 <script src="js/bootstrap.bundle.min.js"></script>
 <script src="js/jog.js"></script>
 <script src="js/commands.js"></script>
@@ -398,6 +390,7 @@
 
     // Your code to run since DOM is loaded and ready
   });
+
 
 
 

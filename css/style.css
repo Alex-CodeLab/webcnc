@@ -18,7 +18,8 @@ box-sizing: border-box;
 body {
     position: relative;
     margin: var(--header-height) 0 0 0;
-    padding: 0 1rem;
+    padding: 1rem;
+
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
     transition: 0.5s;
@@ -38,7 +39,7 @@ a {
     align-items: center;
     justify-content: space-between;
     padding: 0 1rem;
-    background-color: var(--white-color);
+    background-color: var(--bs-secondary-bg);
     z-index: var(--z-fixed);
     transition: 0.5s;
 }
@@ -318,4 +319,10 @@ transform-origin: left;
     --bs-alert-bg: var(--bs-danger);
     --bs-alert-border-color: var(--bs-danger-border-subtle);
     --bs-alert-link-color: var(--bs-danger-text-emphasis);
+}
+
+.navbar-text {
+    margin: 0px 15px 0px 110px;
+    color: #c1c1c1;
+    font-weight: bold;
 }

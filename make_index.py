@@ -2,7 +2,7 @@ import re
 import gzip
 
 # Define the regular expressions to find CSS and JS file references in the HTML
-css_regex = re.compile(r'<link\s.*?href=["\']([^"\']+)["\'].*?>')
+css_regex = re.compile(r'<link\shref=["\']([^"\']+)["\'].*?>')
 js_regex = re.compile(r'<script\s.*?src=["\']([^"\']+)["\'].*?(?:type=["\']application\/javascript["\'].*?)?>')
 # js_regex = re.compile(r'<script\s.*?src=["\']([^"\']+)["\'].*?\stype=["\']application\/javascript["\'].*?>')
 
