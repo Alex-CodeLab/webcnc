@@ -74,29 +74,65 @@ function handleFileInputChange(event) {
 }
 
 function delete_file(el, path){
-    var action = 'path=%2F&action=delete&filename=' + el
-    fetch('http://'+ IPADDRESS +'/upload?' + action, {
-       headers: {
-          'Accept': 'application/json'
-       }
+    var action = 'path='+ path + '&action=delete&filename=' + el ;
+    var url = 'http://'+ IPADDRESS +'/files?' + encodeURI(action)
+    fetch(url, {
     })
        .then(response => response.text())
-       .then(text => list_files())
+       .then(text => fs_list_files())
+     .catch(error => {
+        console.error('Error:', error);
+      });
 }
 
-
+var currentFolder = "/";
 // FS
 function fs_list_files(){
-    let path = "/files?action=list&filename=all&path=/";
+    let path = "/files?action=list&filename=all&path=" + currentFolder;
        fetch('http://'+ IPADDRESS + path, {
        headers: {
           'Accept': 'application/json'
        }
     })
-       .then(response => response.text())
-       .then(text => fs_display_files(text))
-}
 
+  .then(response => response.json())
+      .then(data => {
+        let fileList = data.files;
+        let folderList = [{name:'/'}];
+        if (!folderList.find(o => o.name === currentFolder )){
+            folderList.push({name: currentFolder });
+        }
+        document.getElementById('file-list').innerHTML = "";
+        document.getElementById('folder-list').innerHTML = "";
+
+        // Iterate through files and folders
+        fileList.forEach(file => {
+          if (file.size == -1) {
+            // Add folder to folder list
+            folderList.push(file);
+          } else {
+            // Append file row to the table
+            const row = createFileRow(file);
+            document.getElementById('file-list').appendChild(row);
+          }
+        });
+
+        // Iterate through folders and create cards
+        folderList.forEach(folder => {
+          const card = createFolderCard(folder);
+          document.getElementById('folder-list').appendChild(card);
+        });
+        let all_folders = document.getElementById("folder-list");
+            for (const folder of all_folders.children) {
+            folder.classList.remove('border-info');
+        }
+        document.getElementById(currentFolder).classList.toggle("border-info");
+
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
 
 function fs_display_files(f){
     const obj = JSON.parse(f);
@@ -141,6 +177,66 @@ fsuploadButton.addEventListener('click', () => {
       });
 
 
-function show_spinner() {
- var el = document.getElementById()
+
+ // Function to create file row
+function createFileRow(file) {
+    const row = document.createElement('tr');
+    const nameCell = document.createElement('td');
+    const sizeCell = document.createElement('td');
+
+    const actionCell = document.createElement('td');
+    const deleteButton = document.createElement('button');
+
+    nameCell.textContent = file.name;
+    sizeCell.textContent = file.size;
+
+    deleteButton.textContent = 'Delete';
+    deleteButton.classList.add('btn', 'btn-danger');
+
+    // Add event listener for delete button
+    deleteButton.addEventListener('click', () => {
+
+    // Perform delete operation
+    delete_file(file.name, currentFolder);
+    });
+
+    row.appendChild(nameCell);
+    row.appendChild(sizeCell);
+    actionCell.appendChild(deleteButton);
+    row.appendChild(actionCell);
+
+    return row;
+}
+
+// Function to create folder card
+function createFolderCard(folder) {
+    const card = document.createElement('div');
+    card.classList.add('card','col-md-4', 'mb-4');
+
+    const cardBody = document.createElement('div');
+    cardBody.classList.add('card-body');
+
+    const cardIcon = document.createElement('i');
+    cardIcon.classList.add('bx','bx-folder');
+
+    const cardTitle = document.createElement('h5');
+    cardTitle.textContent = folder.name;
+
+    const cardText = document.createElement('p');
+    cardText.classList.add('card-text');
+    //      cardText.textContent = `Files: ${folder.files.length}`;
+    cardText.textContent = '';
+
+    cardBody.appendChild(cardIcon);
+    cardBody.appendChild(cardTitle);
+    card.appendChild(cardBody);
+
+    card.setAttribute("id", folder.name);
+    card.setAttribute("onClick", "selectfolder(this)");
+    return card;
+}
+
+function selectfolder(el){
+    currentFolder = el.id;
+    fs_list_files();
 }

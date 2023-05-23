@@ -14,10 +14,6 @@
             href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css"
             rel="stylesheet"
     />
-
-    <style>
-
-    </style>
 </head>
 <body id="body-pd">
 <header class="header" id="header">
@@ -31,7 +27,6 @@
 <div class="l-navbar" id="nav-bar">
     <nav class="nav">
         <div>
-
 
             <div class="nav_list">
                 <a href="#" class="nav_link" id="nav-dashboard-tab" data-bs-toggle="tab"
@@ -89,9 +84,12 @@
 
     <!-- fs content  -->
     <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">
-        <div class="card p-3">
 
-            <div class="container">
+        <div id="fs">
+            <div class="card p-3">
+            <div class="containe m-3">
+                <div class="row" id="folder-list"></div>
+
                 <div class="input-group">
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="fileInput" aria-describedby="customFileInput">
@@ -100,12 +98,23 @@
                         <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
                     </div>
                 </div>
+</div>
+
+
+
+                <h1>Files</h1>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Filename</th>
+                        <th>Filesize</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="file-list"></tbody>
+                </table>
             </div>
-        </div>
-        <div id="fs">
-            <div class="spinner-border spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
+
         </div>
     </div>
 
@@ -351,55 +360,44 @@
 <script src="js/files.js"></script>
 <script src="js/controls.js"></script>
 <script type="text/javascript">
-    function open_page(page_id){
 
-        console.log(page_id)
-<!--        if (page_id == "fs_files"){-->
+  document.addEventListener("DOMContentLoaded", function (event) {
+    const showNavbar = (toggleId, navId, bodyId, headerId) => {
+      const toggle = document.getElementById(toggleId),
+        nav = document.getElementById(navId),
+        bodypd = document.getElementById(bodyId),
+        headerpd = document.getElementById(headerId);
 
+      // Validate that all variables exist
+      if (toggle && nav && bodypd && headerpd) {
+        toggle.addEventListener("click", () => {
+          // show navbar
+          nav.classList.toggle("show_panel");
+          // change icon
+          toggle.classList.toggle("bx-x");
+          // add padding to body
+          bodypd.classList.toggle("body-pd");
+          // add padding to header
+          headerpd.classList.toggle("body-pd");
+        });
+      }
+    };
 
-<!--        }-->
+    showNavbar("header-toggle", "nav-bar", "body-pd", "header");
+
+    /*===== LINK ACTIVE =====*/
+    const linkColor = document.querySelectorAll(".nav_link");
+
+    function colorLink() {
+      if (linkColor) {
+        linkColor.forEach((l) => l.classList.remove("active"));
+        this.classList.add("active");
+      }
     }
+    linkColor.forEach((l) => l.addEventListener("click", colorLink));
 
-
-      document.addEventListener("DOMContentLoaded", function (event) {
-        const showNavbar = (toggleId, navId, bodyId, headerId) => {
-          const toggle = document.getElementById(toggleId),
-            nav = document.getElementById(navId),
-            bodypd = document.getElementById(bodyId),
-            headerpd = document.getElementById(headerId);
-
-          // Validate that all variables exist
-          if (toggle && nav && bodypd && headerpd) {
-            toggle.addEventListener("click", () => {
-              // show navbar
-              nav.classList.toggle("show_panel");
-              // change icon
-              toggle.classList.toggle("bx-x");
-              // add padding to body
-              bodypd.classList.toggle("body-pd");
-              // add padding to header
-              headerpd.classList.toggle("body-pd");
-            });
-          }
-        };
-
-        showNavbar("header-toggle", "nav-bar", "body-pd", "header");
-
-        /*===== LINK ACTIVE =====*/
-        const linkColor = document.querySelectorAll(".nav_link");
-
-        function colorLink() {
-          if (linkColor) {
-            linkColor.forEach((l) => l.classList.remove("active"));
-            this.classList.add("active");
-            console.log(this.id);
-            open_page(this.id);
-          }
-        }
-        linkColor.forEach((l) => l.addEventListener("click", colorLink));
-
-        // Your code to run since DOM is loaded and ready
-      });
+    // Your code to run since DOM is loaded and ready
+  });
 
 
 
