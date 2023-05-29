@@ -56,6 +56,14 @@
                     <i class="bx bx-file nav_icon"></i>
                     <span class="nav_name">Files</span>
                 </a>
+
+                <a href="#" class="nav_link" id="smacros" data-bs-toggle="tab" data-bs-target="#nav-macros"
+                   aria-controls="nav-smacros"
+                   onclick="manage_macros()">
+                    <i class="bx bx-dialpad-alt nav_icon"></i>
+                    <span class="nav_name">Macros</span>
+                </a>
+
                 <a href="#" class="nav_link" id="system" data-bs-toggle="tab" data-bs-target="#nav-system"
                    aria-controls="nav-system"
                    onclick="get_system_status()">
@@ -69,74 +77,162 @@
 </div>
 
 <main class="container">
-<div class="tab-content m-3" id="nav-tabContent">
+    <div class="tab-content m-3" id="nav-tabContent">
 
 
-    <!-- flash config content -->
-    <div class="tab-pane fade" id="nav-flash" role="tabpanel" aria-labelledby="nav-flash-tab">
-        <div class="card p-3" id="nav-flash-c"></div>
-    </div>
+        <!-- flash config content -->
+        <div class="tab-pane fade" id="nav-flash" role="tabpanel" aria-labelledby="nav-flash-tab">
+            <div class="card p-3" id="nav-flash-c"></div>
+        </div>
 
-    <!-- config content  -->
-    <div class="tab-pane fade " id="nav-config" role="tabpanel" aria-labelledby="nav-config-tab">
-        <div class="card p-3" id="nav-config-c">
-            <div class="spinner-border m-5" role="status">
-                <span class="visually-hidden">Loading...</span>
+        <!-- config content  -->
+        <div class="tab-pane fade " id="nav-config" role="tabpanel" aria-labelledby="nav-config-tab">
+            <div class="card p-3" id="nav-config-c">
+                <div class="spinner-border m-5" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- fs content  -->
-    <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">
+        <!-- fs content  -->
+        <div class="tab-pane fade" id="nav-fs" role="tabpanel" aria-labelledby="nav-fs-tab">
 
-        <div id="fs">
-            <div class="card p-3">
-                <div class="containe m-3">
-                    <div class="row" id="folder-list"></div>
+            <div id="fs">
+                <div class="card p-3">
+                    <div class="containe m-3">
+                        <div class="row" id="folder-list"></div>
 
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="fileInput"
-                                   aria-describedby="customFileInput">
-                        </div>
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="fileInput"
+                                       aria-describedby="customFileInput">
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button" id="FileInputbtn">Upload</button>
+                            </div>
                         </div>
                     </div>
+
+
+                    <h1>Files</h1>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Filesize</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="file-list"></tbody>
+                    </table>
                 </div>
 
-
-                <h1>Files</h1>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Filename</th>
-                        <th>Filesize</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody id="file-list"></tbody>
-                </table>
             </div>
-
         </div>
-    </div>
 
-    <!-- sysinfo content  -->
-    <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">
-        <div class="card p-3" id="nav-system-c"></div>
-    </div>
+        <!-- macros content  -->
+        <div class="tab-pane fade " id="nav-macros" role="tabpanel" aria-labelledby="nav-macros-tab">
+            <div class="card p-3" id="nav-macros-c">
+                <div class=" m-5" role="status">
+                    <span class="visually-hidden">...</span>
+                    <div class="form-group">
 
 
-    <!-- dashboard content -->
-    <div class="tab-pane fade " id="nav-dashboard" role="tabdashboard" aria-labelledby="nav-dashboard-tab">
-        <div class="row align-items-start">
-            <div class="col">
+                        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="pills-macro0-tab" data-bs-toggle="pill" onclick="get_macro(0)"
+                                        data-bs-target="#pills-macro0" type="button" role="tab"
+                                        aria-controls="pills-macro0"
+                                        aria-selected="true">macro 0
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-macro1-tab" data-bs-toggle="pill" onclick="get_macro(1)"
+                                        data-bs-target="#pills-macro1" type="button" role="tab"
+                                        aria-controls="pills-macro1"
+                                        aria-selected="false">macro 1
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-macro2-tab" data-bs-toggle="pill" onclick="get_macro(2)"
+                                        data-bs-target="#pills-macro2" type="button" role="tab"
+                                        aria-controls="pills-macro2"
+                                        aria-selected="false">macro 2
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-macro3-tab" data-bs-toggle="pill" onclick="get_macro(3)"
+                                        data-bs-target="#pills-macro3" type="button" role="tab"
+                                        aria-controls="pills-macro3"
+                                        aria-selected="false">macro 3
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-macro4-tab" data-bs-toggle="pill" onclick="get_macro(4)"
+                                        data-bs-target="#pills-macro4" type="button" role="tab"
+                                        aria-controls="pills-macro4"
+                                        aria-selected="false">macro 4
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="pills-macro5-tab" data-bs-toggle="pill" onclick="get_macro(5)"
+                                        data-bs-target="#pills-macro5" type="button" role="tab"
+                                        aria-controls="pills-macro5"
+                                        aria-selected="false">macro 5
+                                </button>
+                            </li>
 
-                <div class="card mb-3" style="min-width: 600px; ">
 
-                    <div class="row g-0">
-                        <div class="col-3 p-3" style="min-width: 450px; ">
+                        </ul>
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-macro0" role="tabpanel"
+                                 aria-labelledby="pills-macro0-tab" tabindex="0">
+                                    <textarea class="form-control" rows="15" id="macro0"></textarea></div>
+                            <div class="tab-pane fade" id="pills-macro1" role="tabpanel"
+                                 aria-labelledby="pills-macro1-tab"
+                                 tabindex="0"><textarea class="form-control" rows="15" id="macro1"></textarea></div>
+                            <div class="tab-pane fade" id="pills-macro2" role="tabpanel"
+                                 aria-labelledby="pills-macro2-tab"
+                                 tabindex="0"><textarea class="form-control" rows="15" id="macro2"></textarea></div>
+                            <div class="tab-pane fade" id="pills-macro3" role="tabpanel"
+                                 aria-labelledby="pills-macro3-tab"
+                                 tabindex="0"><textarea class="form-control" rows="15" id="macro3"></textarea></div>
+                            <div class="tab-pane fade" id="pills-macro4" role="tabpanel"
+                                 aria-labelledby="pills-macro4-tab"
+                                 tabindex="0"><textarea class="form-control" rows="15" id="macro4"></textarea></div>
+                            <div class="tab-pane fade" id="pills-macro5" role="tabpanel"
+                                 aria-labelledby="pills-macro5-tab"
+                                 tabindex="0"><textarea class="form-control" rows="15" id="macro5"></textarea></div>
+                        </div>
+<!--
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">Name: </span>
+                            <input type="text" class="form-control" id="inputName" aria-label="Name input" aria-describedby="name-default">
+                        </div>
+-->
+                            <form onsubmit="event.preventDefault();">
+                                <button id="macro_upload" class="btn btn-primary" >Save Macro</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- sysinfo content  -->
+        <div class="tab-pane fade" id="nav-system" role="tabpanel" aria-labelledby="nav-system-tab">
+            <div class="card p-3" id="nav-system-c"></div>
+        </div>
+
+
+        <!-- dashboard content -->
+        <div class="tab-pane fade " id="nav-dashboard" role="tabdashboard" aria-labelledby="nav-dashboard-tab">
+            <div class="row align-items-start">
+                <div class="col">
+
+                    <div class="card mb-3" style="min-width: 600px; ">
+
+                        <div class="row g-0">
+                            <div class="col-3 p-3" style="min-width: 450px; ">
 
                     <span class="btns">
                         <button type="button" class="btn btn-primary btn-lg homebtn" onclick="homing(this, 'X')"
@@ -151,17 +247,17 @@
                                 data-bs-title="Home Y">Y</button>
                     </span>
 
-                            <div id="jog" class="circle0 shadow">
-                                <a href="#" class="stretched-link" style="cursor: crosshair;"></a>
-                                <div class="linev"></div>
-                                <div class="lineh"></div>
-                                <div class="circle1 shadow border2">
-                                    <div class="circle2 shadow border2">
-                                        <div class="circle3 shadow border2"></div>
+                                <div id="jog" class="circle0 shadow">
+                                    <a href="#" class="stretched-link" style="cursor: crosshair;"></a>
+                                    <div class="linev"></div>
+                                    <div class="lineh"></div>
+                                    <div class="circle1 shadow border2">
+                                        <div class="circle2 shadow border2">
+                                            <div class="circle3 shadow border2"></div>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <span class="btns btm">
+                                    <span class="btns btm">
                             <button type="button" class="btn btn-primary btn-lg homebtn"
                                     onclick="homing(this, '')"
                                     data-bs-toggle="tooltip" data-bs-placement="top"
@@ -174,173 +270,187 @@
                                     data-bs-title="Home Z">Z</button>
                         </span>
 
-                            </div> <!--/jog-->
-                            <br/>
-                        </div>
-
-                        <div class="col-2 p-3">
-
-                            <div class="btn-group-justified btn-group-md btn-group-vertical">
-
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 5, 'Z')">5
-                                </button>
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 1, 'Z')">1
-                                </button>
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, 0.1, 'Z')">
-                                    .1
-                                </button>
-                                <button type="button" class="btn btn-outline-secondary">Z</button>
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -0.1, 'Z')">
-                                    -.1
-                                </button>
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -1, 'Z')">-1
-                                </button>
-                                <button type="button" class="btn btn-secondary" onclick="sendCommand2(this, -5, 'Z')">-5
-                                </button>
+                                </div> <!--/jog-->
+                                <br/>
                             </div>
-                            <div class="pt-3">
-                                <input id="jog_help" class="form-control" type="text" value="" aria-label="example"
-                                       readonly>
 
-                                <div class="range">
-                                    <input type="range" class="form-range" id="jogspeed" data-bs-toggle="tooltip"
-                                           data-bs-placement="right"
-                                           data-bs-custom-class="custom-tooltip"
-                                           data-bs-title="Jog speed (F)"/></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row p-3">
-                        <div class="col-2">WPos</div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">X</div>
-                                <input id="x_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                            <div class="col-2 p-3">
+
+                                <div class="btn-group-justified btn-group-md btn-group-vertical">
+
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, 5, 'Z')">5
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, 1, 'Z')">1
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, 0.1, 'Z')"> .1
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary">Z</button>
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, -0.1, 'Z')"> -.1
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, -1, 'Z')">-1
+                                    </button>
+                                    <button type="button" class="btn btn-secondary"
+                                            onclick="sendCommand2(this, -5, 'Z')">-5
+                                    </button>
+                                </div>
+                                <div class="pt-3">
+                                    <input id="jog_help" class="form-control" type="text" value="" aria-label="example"
+                                           readonly>
+
+                                    <div class="range">
+                                        <input type="range" class="form-range" id="jogspeed" data-bs-toggle="tooltip"
+                                               data-bs-placement="right"
+                                               data-bs-custom-class="custom-tooltip"
+                                               data-bs-title="Jog speed (F)"/></div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">Y</div>
-                                <input id="y_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                        <div class="row p-3">
+                            <div class="col-2">WPos</div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">X</div>
+                                    <input id="x_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">Y</div>
+                                    <input id="y_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">Z</div>
+                                    <input id="z_val" class="form-control" type="text" value="" aria-label="X" readonly>
+                                </div>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">Z</div>
-                                <input id="z_val" class="form-control" type="text" value="" aria-label="X" readonly>
+
+                        <div class="row p-3">
+                            <div class="col-2">MPos</div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">X</div>
+                                    <input id="x_val_m" class="form-control" type="text" value="" aria-label="X"
+                                           readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">Y</div>
+                                    <input id="y_val_m" class="form-control" type="text" value="" aria-label="X"
+                                           readonly>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-text">Z</div>
+                                    <input id="z_val_m" class="form-control" type="text" value="" aria-label="X"
+                                           readonly>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </div> <!--/card-->
 
-                    <div class="row p-3">
-                        <div class="col-2">MPos</div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">X</div>
-                                <input id="x_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Log
+                            <div class="form-check form-switch float-end">
+                                <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">Y</div>
-                                <input id="y_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
+                        <div class="card-body">
+                            <div class="outline">
+                                <label for="log_textArea"></label><textarea class="form-control" id="log_textArea"
+                                                                            rows="8"
+                                                                            readonly></textarea>
                             </div>
+                        </div><!-- /card-body-->
+                    </div> <!-- /card-->
+
+
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            Commands
                         </div>
-                        <div class="col">
-                            <div class="input-group">
-                                <div class="input-group-text">Z</div>
-                                <input id="z_val_m" class="form-control" type="text" value="" aria-label="X" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div> <!--/card-->
+                        <div class="card-body">
+                            <form class="form-inline">
+                                <div class="input-group ">
+                                    <input class="form-control" type="text" placeholder="command input" id="command_msg"
+                                           aria-label="send command">
+                                    <button class="btn btn-primary" id="command_msg_btn" type="button"
+                                            onclick="sendCommand()">
+                                        Send
+                                    </button>
+                                </div>
+                            </form>
 
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Log
-                        <div class="form-check form-switch float-end">
-                            <input class="form-check-input" type="checkbox" value="" id="report_interval" checked>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="outline">
-                            <label for="log_textArea"></label><textarea class="form-control" id="log_textArea" rows="8"
-                                                                        readonly></textarea>
-                        </div>
-                    </div><!-- /card-body-->
-                </div> <!-- /card-->
+                        </div><!-- /card-body-->
+                    </div> <!-- /card-->
 
+                </div> <!--/coll-->
 
-                <div class="card mb-3">
-                    <div class="card-header">
-                        Commands
-                    </div>
-                    <div class="card-body">
-                        <form class="form-inline">
-                            <div class="input-group ">
-                                <input class="form-control" type="text" placeholder="command input" id="command_msg"
-                                       aria-label="send command">
-                                <button class="btn btn-primary" id="command_msg_btn" type="button"
-                                        onclick="sendCommand()">
-                                    Send
-                                </button>
-                            </div>
-                        </form>
+                <div class="col">
 
-                    </div><!-- /card-body-->
-                </div> <!-- /card-->
-
-            </div> <!--/coll-->
-
-            <div class="col">
-
-                <div class="card mb-3">
-                    <div class="card-header">Controls</div>
-                    <div class="card-body">
-                        <div class="d-grid gap-2 d-md-block">
-                            <button class="btn btn-outline-success  m-3" type="button" id="control_start"
-                                    onclick="control_start()">
+                    <div class="card mb-3">
+                        <div class="card-header">Controls</div>
+                        <div class="card-body">
+                            <div class="d-grid gap-2 d-md-block">
+                                <button class="btn btn-outline-success  m-3" type="button" id="control_start"
+                                        onclick="control_start()">
                             <span style='font-size:30px;'
                                   data-bs-toggle="tooltip" data-bs-placement="top"
                                   data-bs-custom-class="custom-tooltip"
                                   data-bs-title="start"> &#x25BA;</span>
-                            </button>
-                            <button class="btn btn-outline-warning  m-3" type="button" id="control_pause"
-                                    onclick="control_pause()">
+                                </button>
+                                <button class="btn btn-outline-warning  m-3" type="button" id="control_pause"
+                                        onclick="control_pause()">
                             <span style='font-size:30px;'
                                   data-bs-toggle="tooltip"
                                   data-bs-placement="top"
                                   data-bs-custom-class="custom-tooltip"
                                   data-bs-title="pause">&#9616;&nbsp;&#9612; </span>
-                            </button>
-                            <button class="btn btn btn-outline-danger  m-3" type="button" id="control_stop"
-                                    onclick="control_stop()">
+                                </button>
+                                <button class="btn btn btn-outline-danger  m-3" type="button" id="control_stop"
+                                        onclick="control_stop()">
                             <span style='font-size:30px; padding:5px;'
                                   data-bs-toggle="tooltip" data-bs-placement="top"
                                   data-bs-custom-class="custom-tooltip"
                                   data-bs-title="stop">&#x25A0; </span>
-                            </button>
-                            <div class="input-group mb-3">
-                                <span class="input-group-text">Selected: </span>
-                                <input class="form-control" id="selected_file" type="text" value=""
-                                       aria-label="selected file or macro" readonly
-                                       data-bs-toggle="tooltip" data-bs-placement="top"
-                                       data-bs-custom-class="custom-tooltip"
-                                       data-bs-title="selected file or macro">
+                                </button>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">Selected: </span>
+                                    <input class="form-control" id="selected_file" type="text" value=""
+                                           aria-label="selected file or macro" readonly
+                                           data-bs-toggle="tooltip" data-bs-placement="top"
+                                           data-bs-custom-class="custom-tooltip"
+                                           data-bs-title="selected file or macro">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="card mb-3">
-                    <div class="card-header">Files
-                        <button type="button" id="uploadbtn" class="btn btn-secondary btn-sm float-end">Upload</button>
-                        <input id="fileInp" type="file" style="display: none;">
+                    <div class="card mb-3">
+                        <div class="card-header">Files & Macros
+                            <button type="button" id="uploadbtn" class="btn btn-secondary btn-sm float-end">Upload
+                            </button>
+                            <input id="fileInp" type="file" style="display: none;">
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group" id="files"></ul>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="" id="listmacros"></div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <ul class="list-group" id="files"></ul>
-                    </div>
-                </div>
+
                 </div>
             </div>
         </div>
@@ -352,6 +462,7 @@
 <script src="js/status.js"></script>
 <script src="js/init.js"></script>
 <script src="js/files.js"></script>
+<script src="js/macros.js"></script>
 <script src="js/controls.js"></script>
 <script type="text/javascript">
 
@@ -392,9 +503,6 @@
 
     // Your code to run since DOM is loaded and ready
   });
-
-
-
 
 </script>
 </body>

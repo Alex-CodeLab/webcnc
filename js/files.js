@@ -5,36 +5,41 @@ function list_files(){
           'Accept': 'application/json'
        }
     })
-       .then(response => response.text())
-       .then(text => display_files(text))
+       .then(response => response.json())
+       .then(json => display_files(json))
 }
 
 
 function display_files(files){
-    const obj = JSON.parse(files);
+    const obj =  files;
     var files_div = document.getElementById('files');
     files_div.innerHTML = "";
     var files_display ='';
+    var macros_display = '';
     for (let file in obj['files']){
       if (obj['files'][file].size == -1) {
         continue;
       }
+      var ext = obj['files'][file].name.split('.').pop();
+      if (ext == 'g'){
+        continue;
+      }
       files_display += '<li class="list-group-item list-group-item-action">'
-      files_display += '<span onclick="select_file(this)" >'+ obj['files'][file].name + '</span>'
+      files_display += '<span onclick="select_file(\'' + obj['files'][file].name + '\')" >'+ obj['files'][file].name + '</span>'
       files_display += '<button class="btn btn-xsm btn-danger float-end" onclick="delete_file(\''
-      files_display += obj['files'][file].name
+      files_display += obj['files'][file].shortname
       files_display += '\')">x</button>'
       files_display += '</li>'
     }
-    files_div.innerHTML = files_display;
+    files_div.innerHTML = files_display ;
+
 }
 list_files();
 
 
-function select_file(el){
+function select_file(name){
 //    const element = document.getElementById('selected_file');
-
-    selected_file.value = el.textContent
+    selected_file.value = name
 }
 
 uploadButton = document.getElementById('uploadbtn').addEventListener('click', handleUploadButtonClick);

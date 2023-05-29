@@ -32,6 +32,8 @@ todo:
 - [x] display  system info
 - [x] manage files
 - [ ] manage folders
+- [ ] display macros 
+- [ ] manage macros
 - [x] file upload 
 - [x] create embedded index.html.gz
 - [ ] docs

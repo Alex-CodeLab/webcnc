@@ -326,3 +326,7 @@ transform-origin: left;
     color: #c1c1c1;
     font-weight: bold;
 }
+
+.nav-pills {
+    flex-direction: row;
+}

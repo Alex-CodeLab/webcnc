@@ -33,7 +33,7 @@ socket.onclose = function(event) {
 };
 
 socket.onerror = function(error) {
-  console.log(`[error]`);
+  console.log(error);
 };
 
 

@@ -25,3 +25,4 @@ function setMPositions(data){
     document.getElementById("y_val_m").value = mxyz[1];
     document.getElementById("z_val_m").value = mxyz[2];
 }
+
