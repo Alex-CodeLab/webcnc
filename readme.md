@@ -3,14 +3,15 @@
 ### WebCNC
 WebCNC is a browser-based GUI for [FLuidNC](https://github.com/bdring/FluidNC/) machines.
 It runs on any device (laptop, tablet). 
-Websockets are used for communicating to ESP32/FluidNC.
 
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/jog.png" width="300">
 darkmode
 <img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/darkmode.png" width="300">
+<img src="https://raw.githubusercontent.com/Alex-CodeLab/webcnc/main/docs/macro_editor.png" width="300">
+
 
 ### Status:
-Alpha
+Alpha 
 
 
 todo:
@@ -23,6 +24,7 @@ todo:
 - [x] track states
 - [x] tooltips
 - [x] start/stop controls
+- [ ] reset button
 - [x] send control signals
 - [ ] send jogspeed
 - [x] read & select files / ssd
@@ -32,8 +34,9 @@ todo:
 - [x] display  system info
 - [x] manage files
 - [ ] manage folders
-- [ ] display macros 
-- [ ] manage macros
+- [x] display macros 
+- [x] manage macros
+- [x] macro editor
 - [x] file upload 
 - [x] create embedded index.html.gz
 - [ ] docs

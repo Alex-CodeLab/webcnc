@@ -1,15 +1,4 @@
 
-#### Demo
-
-
-
-#### Connect
-Currently, the IP address of the machine must be configured manually.
-At the top of `websocket.js`, set the ip of your machine (using port `81)
-
-    WebSocket('ws://192.168.1.100:81');
-
-(On succesfull connection, the indicator in the Status tab should be green).
 
 
 #### Darkmode

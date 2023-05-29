@@ -30,7 +30,7 @@ function display_macros(){
     var buttons_display ='';
     var button = '';
     for (let macro in macros_cnf){
-            button += '<button class="btn btn-sm btn-primary m-2" onclick="select_file(\''+ macros_cnf[macro].filename + '\')" >'
+            button += '<button class="btn  btn-primary m-2" onclick="select_file(\''+ macros_cnf[macro].filename + '\')" >'
             button += macros_cnf[macro].name
             button += '</button>';
             buttons_display += button;
@@ -57,9 +57,7 @@ function get_macro(id){
         .then(data => {
             document.getElementById("macro"+ id).textContent = data
         })
-
 }
-
 
 
 document.getElementById('macro_upload').addEventListener('click', handleMacroUpload);
