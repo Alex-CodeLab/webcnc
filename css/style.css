@@ -180,6 +180,12 @@ body {
 }
 }
 
+@media (min-width: 576px){
+.container, .container-sm {
+    max-width: unset;
+    padding: unset;
+}
+}
 
 .border2{
     outline: 1px  auto #fff;
