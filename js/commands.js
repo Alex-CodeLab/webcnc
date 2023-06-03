@@ -23,7 +23,7 @@ cmd_input.addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
     // Trigger the button element with a click
-    document.getElementById("command_msg_btn").click();
+    document.getElementById("command2_msg_btn").click();
   }
 });
 
