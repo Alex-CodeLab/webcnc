@@ -26,9 +26,9 @@ function display_files(files){
       }
       files_display += '<li class="list-group-item list-group-item-action">'
       files_display += '<span onclick="select_file(\'' + obj['files'][file].name + '\')" >'+ obj['files'][file].name + '</span>'
-      files_display += '<button class="btn btn-xsm btn-danger float-end" onclick="delete_file(\''
-      files_display += obj['files'][file].shortname
-      files_display += '\')">x</button>'
+//      files_display += '<button class="btn btn-xsm btn-danger float-end" onclick="delete_file(\''
+//      files_display += obj['files'][file].shortname
+//      files_display += '\')">x</button>'
       files_display += '</li>'
     }
     files_div.innerHTML = files_display ;
@@ -192,7 +192,10 @@ function createFileRow(file) {
     const actionCell = document.createElement('td');
     const deleteButton = document.createElement('button');
 
-    nameCell.textContent = file.name;
+    const link = document.createElement("a");
+    link.setAttribute('href', file.name);
+    link.textContent = file.name;
+    nameCell.appendChild(link);
     sizeCell.textContent = file.size;
 
     deleteButton.textContent = 'Delete';
