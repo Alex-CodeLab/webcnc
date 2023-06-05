@@ -25,6 +25,7 @@ function handleData(msg){
                     // limit the length of the text-area
                     var i = textarea.value.indexOf("\n") + 1;
                     textarea.value = textarea.value.substring(0, i);
+                    msg_count = 0;
                 }
 
                 lastMessage = newMessage;
